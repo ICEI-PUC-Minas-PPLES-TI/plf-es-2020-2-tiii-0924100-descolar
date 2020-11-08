@@ -11,12 +11,19 @@ body{
     background-color: rgb(221, 196, 221);
 }
 
+.below{
+    margin-top: 100px;
+}
+
 /*styles para o navbar*/
 
 nav{
+    position: fixed;
     background: black;
+    top: 0px;
     height: 100px;
     width: 100%;
+    z-index: 1000;
 }
 
 label.logo{
@@ -46,9 +53,11 @@ nav ul li a{
     text-transform: uppercase;
 }
 
-a.active ,a:hover{
+nav ul li a.active ,nav ul li a:hover{
     background: purple;
     transition: .5s;
+    color: white;
+    text-decoration: none;
 }
 
 /*responsividade navbar*/
@@ -72,6 +81,7 @@ a.active ,a:hover{
         font-size: 30px;
         padding-left: 30px;
     }
+
     nav ul li a{
         font-size: 14px;
         padding: 7px 9px;
@@ -83,6 +93,7 @@ a.active ,a:hover{
         font-size: 30px;
         padding-left: 25px;
     }
+
     nav ul li a{
         font-size: 13px;
         padding: 7px 6px;
@@ -94,9 +105,11 @@ a.active ,a:hover{
         font-size: 32px;
         padding-left: 30px;
     }
+
     .checkbtn{
         display: block;
     }
+
     nav ul{
         position: fixed;
         width: 100%;
@@ -106,19 +119,24 @@ a.active ,a:hover{
         left: -100%;
         text-align: center;
         transition: all .3s;
+        z-index: 100;
     }
+
     nav ul li{
         display: block;
         margin: 50px 0;
         line-height: 30px;
     }
+
     nav ul li a{
         font-size: 17px;
     }
+
     a:hover,a.active{
         background: none;
         color: purple;
     }
+
     #check:checked ~ ul{
         left: 0;
     }   
@@ -314,4 +332,3 @@ section .section-title {
     border-radius: 50%;
 }
   /* Quem Somos*/
-  
