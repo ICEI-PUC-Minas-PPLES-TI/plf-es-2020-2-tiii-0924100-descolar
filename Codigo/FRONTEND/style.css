@@ -97,7 +97,7 @@ a.active ,a:hover{
     .checkbtn{
         display: block;
     }
-    ul{
+    nav ul{
         position: fixed;
         width: 100%;
         height: 100vh;
@@ -127,3 +127,59 @@ a.active ,a:hover{
 /*fim responsividade*/
 
 /*fim navbar*/
+
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+    section {
+        padding: 60px 0;
+    }
+
+    section .section-title {
+        text-align: center;
+        color: black;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+    }
+    #footer {
+    background: black !important;
+    }
+    #footer h5{
+	    padding-left: 10px;
+        border-left: 3px solid rgb(221, 196, 221);
+        padding-bottom: 6px;
+        margin-bottom: 20px;
+        color:rgb(221, 196, 221);
+    }
+    #footer p{
+        color: rgb(221, 196, 221);
+    }
+    #footer a {
+        color: rgb(221, 196, 221);
+        text-decoration: none !important;
+    }
+    #footer ul.social li{
+    	padding: 3px 0;
+    }
+    #footer ul.social li a i {
+        margin-right: 5px;
+    	font-size:25px;
+    }
+    #footer ul.quick-links li:hover{
+	    padding: 3px 0;
+	    margin-left:8px;
+    }
+    #footer ul.quick-links li a i{
+	    margin-right: 5px;
+    }
+
+    @media (max-width:767px){
+	    #footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+/*FIM FOOTER */
