@@ -8,11 +8,13 @@
 
 body{
     font-family: 'Times New Roman', Times, serif;
-    background-color: rgb(221, 196, 221);
+    background-color: black;
 }
 
 .below{
+    padding-top: 20px;
     margin-top: 100px;
+    background-color: black;
 }
 
 /*styles para o navbar*/
@@ -24,12 +26,14 @@ nav{
     height: 100px;
     width: 100%;
     z-index: 1000;
+    border-bottom: purple;
+    border-style: double;
 }
 
 label.logo{
     color: purple;
     font-size: 30px;
-    line-height: 100px;
+    line-height: 90px;
     padding: 0 30px;
     font-weight: bold;
 }
@@ -66,7 +70,7 @@ nav ul li a.active ,nav ul li a:hover{
     font-size:25px;
     color: purple;
     float: right;
-    line-height: 100px;
+    line-height: 90px;
     margin-right: 40px;
     cursor: pointer;
     display: none;
@@ -137,7 +141,7 @@ nav ul li a.active ,nav ul li a:hover{
         color: purple;
     }
 
-    #check:checked ~ ul{
+    #check:checked ~ .itensnav{
         left: 0;
     }   
 }
@@ -205,9 +209,6 @@ nav ul li a.active ,nav ul li a:hover{
 /*styles para Quem Somos*/
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-#team {
-    background: #eee !important;
-}
 
 .btn-primary:hover,
 .btn-primary:focus {
@@ -331,4 +332,49 @@ section .section-title {
     height: 120px;
     border-radius: 50%;
 }
-  /* Quem Somos*/
+/* Quem Somos*/
+
+
+
+/* Entrar */
+
+/* Formulário cadastro*/
+
+.cadastro{
+    width: 600px;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    margin-left: 20px;
+    border-style: double;
+}
+
+.btn-cadastro{
+    background-color: purple;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+form h4{
+    color: purple;
+    text-align: center;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.checks{
+    margin: 10px;
+}
+
+.some{
+    display: none;
+}
+
+.check-1:checked ~ .some-1{
+   display: block;
+}
+
+.check-2:checked ~ .some-2{
+    display: block;
+ }
