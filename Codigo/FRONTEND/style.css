@@ -14,7 +14,7 @@ body{
 .below{
     padding-top: 20px;
     margin-top: 100px;
-    background-color: black;
+    background-color: purple;
 }
 
 /*styles para o navbar*/
@@ -165,6 +165,8 @@ nav ul li a.active ,nav ul li a:hover{
     }
     #footer {
     background: black !important;
+    border-top: double;
+    border-color: purple;
     }
     #footer h5{
 	    padding-left: 10px;
@@ -212,16 +214,16 @@ nav ul li a.active ,nav ul li a:hover{
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: purple;;
-    border-color: purple;;
+    background-color: purple;
+    border-color: purple;
     box-shadow: none;
     outline: none;
 }
 
 .btn-primary {
     color: #fff;
-    background-color: purple;;
-    border-color: purple;;
+    background-color: purple !important;
+    border-color: purple !important;
 }
 
 section {
@@ -230,7 +232,7 @@ section {
 
 section .section-title {
     text-align: center;
-    color: purple;
+    color:White;
     margin-bottom: 50px;
     text-transform: uppercase;
 }
@@ -333,8 +335,6 @@ section .section-title {
     border-radius: 50%;
 }
 /* Quem Somos*/
-
-
 
 /* Entrar */
 
