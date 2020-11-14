@@ -371,10 +371,32 @@ form h4{
     display: none;
 }
 
-.check-1:checked ~ .some-1{
+.check-1:checked ~ .aparece-1{
    display: block;
 }
 
-.check-2:checked ~ .some-2{
+.check-2:checked ~ .aparece-2{
     display: block;
+}
+
+@media (max-width: 660px){
+.cadastro {width: 550px; }
+}
+
+@media (max-width: 600px){
+    .cadastro {width: 490px; }
+ }
+
+ @media (max-width: 550px){
+    .cadastro {width: 440px; }
+ }
+
+ @media (max-width: 500px){
+    .cadastro {width: 390px; }
+ }
+
+ @media (max-width: 450px){
+    .cadastro {width: 330px; }
+    .check-1 {display: inline;}
+    .check-2 {display: inline;}
  }
