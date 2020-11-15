@@ -153,12 +153,10 @@ nav ul li a.active ,nav ul li a:hover{
 /* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
-    section {
-        padding: 60px 0;
-    }
+    
 
     section .section-title {
-        text-align: center;
+        
         color: black;
         margin-bottom: 50px;
         text-transform: uppercase;
@@ -193,9 +191,7 @@ nav ul li a.active ,nav ul li a:hover{
 	    padding: 3px 0;
 	    margin-left:8px;
     }
-    #footer ul.quick-links li a i{
-	    margin-right: 5px;
-    }
+    
 
     @media (max-width:767px){
 	    #footer h5 {
@@ -345,7 +341,7 @@ section .section-title {
     background-color: black;
     color: white;
     padding: 15px;
-    margin-left: 20px;
+    margin-left: 10px;
     border-style: double;
 }
 
@@ -380,19 +376,19 @@ form h4{
 }
 
 @media (max-width: 660px){
-.cadastro {width: 550px; }
+.cadastro {width: 530px; }
 }
 
 @media (max-width: 600px){
-    .cadastro {width: 490px; }
+    .cadastro {width: 470px; }
  }
 
  @media (max-width: 550px){
-    .cadastro {width: 440px; }
+    .cadastro {width: 420px; }
  }
 
  @media (max-width: 500px){
-    .cadastro {width: 390px; }
+    .cadastro {width: 370px; }
  }
 
  @media (max-width: 450px){
@@ -400,3 +396,88 @@ form h4{
     .check-1 {display: inline;}
     .check-2 {display: inline;}
  }
+
+/* ! cadastro */
+
+/* LOGIN */
+
+body{
+    background-color: black;
+    font-family: sans-serif;
+}
+
+.card{
+    background-color: whitesmoke;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+form{
+    width: 400px;
+    margin: auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 60px;
+}
+
+.tittle{
+    color: purple;
+}
+
+.card-top{
+    text-align: center;
+}
+
+.card-group{
+    margin-bottom: 12px;
+}
+
+.card-group > label{
+    width: 100%;
+    color: black;
+    display: block;
+}
+
+.card-group > input{
+    border-radius: 5px;
+    outline: 0;
+    width: 100%;
+    height: 25px;
+    padding: 3px;
+}
+
+.card-group > button{
+    background-image: linear-gradient(to right, deeppink , rebeccapurple);
+    width: 100%;
+    border-radius: 30px;
+    padding: 10px;
+    color: white;
+    border: 0px;
+    outline: 0;
+    font-size: medium;
+}
+
+.btn button:hover{
+    background-image: linear-gradient(to left, deeppink , rebeccapurple);
+}
+@media (max-width: 660px){
+    .login {width: 350px; }
+    }
+    
+@media (max-width: 600px){
+    .login {width: 320px; }
+     }
+    
+@media (max-width: 550px){
+    .login {width: 300px; }
+     }
+    
+@media (max-width: 500px){
+    .login {width: 270px; }
+    }
+    
+@media (max-width: 450px){
+    .login {width: 250px; }
+     }
+
+/* ! LOGIN */
