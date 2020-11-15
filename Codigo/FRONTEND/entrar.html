@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dEscolar</title>
-    <link rel = "stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="style.css">
+
     <!------ para footer ---------->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	
-	<!--link para itens da responsividade do navbar-->
+
+    <!--link para itens da responsividade do navbar-->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <!--link para formulario de cadastro-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 </head>
+
 <body>
 
     <!--navbar-->
@@ -42,142 +45,178 @@
         </ul>
     </nav>
 
-	<div class="below">
+    <div class="below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-sm-12 col-md-12">
+                    <div class="cadastro">
+                        <form>
 
-        <div class="cadastro">
-            <form>
+                            <h4>Cadastre-se</h4>
+                            <!------ arrumar o sumir ---------->
 
-                <h4>Cadastre-se</h4>
-                   <!------ arrumar o sumir ---------->
+                            <input type="checkbox" class="checks check-1">
+                            <label class="form-check-label" for="check-1">
+                                Pessoa física
+                            </label>
 
-                <input type="checkbox" class="checks check-1">
-                <label class="form-check-label" for="check-1">
-                    Pessoa física
-                </label>
+                            <input type="checkbox" class="checks check-2">
+                            <label class="form-check-label" for="check-2">
+                                Pessoa jurídica
+                            </label>
 
-                <input type="checkbox" class="checks check-2">
-                <label class="form-check-label" for="check-2">
-                    Pessoa jurídica
-                </label>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Senha</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label>Nome completo</label>
+                                <input class="form-control">
+                            </div>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Senha</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="form-group">
-                    <label>Nome completo</label>
-                    <input class="form-control">
-                </div>
+                            <div class="some aparece-1 form-group">
+                                <label>CPF</label>
+                                <input class="form-control">
+                            </div>
 
-                <div class="some aparece-1 form-group">
-                    <label>CPF</label>
-                    <input class="form-control">
-                </div>
-                
-                <div class="some aparece-2 form-group">
-                    <label>CNPJ</label>
-                    <input class="form-control">
-                </div>
+                            <div class="some aparece-2 form-group">
+                                <label>CNPJ</label>
+                                <input class="form-control">
+                            </div>
 
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Estado</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>Minas Gerais</option>
-                      <option>Rio de Janeiro</option>
-                      <option>São Paulo</option>
-                      <option>Espírito Santo</option>
-                      <option>Paraná</option>
-                      <option>Rio Grande do Sul</option>
-                      <option>Santa Catarina</option>
-                      <option>Mato Grosso do Sul</option>
-                      <option>Mato Grosso</option>
-                      <option>Goias</option>
-                      <option>Distrito Federal</option>
-                      <option>Rondônia</option>
-                      <option>Acre</option>
-                      <option>Amazonas</option>
-                      <option>Amapá</option>
-                      <option>Roraima</option>
-                      <option>Pará</option>
-                      <option>Tocantins</option>
-                      <option>Maranhão</option>
-                      <option>Ceará</option>
-                      <option>Rio grande do Norte</option>
-                      <option>Paraíba</option>
-                      <option>Pernambuco</option>
-                      <option>Alagoas</option>
-                      <option>Sergipe</option>
-                      <option>Bahia</option>
-                    </select>
-                </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Estado</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Minas Gerais</option>
+                                    <option>Rio de Janeiro</option>
+                                    <option>São Paulo</option>
+                                    <option>Espírito Santo</option>
+                                    <option>Paraná</option>
+                                    <option>Rio Grande do Sul</option>
+                                    <option>Santa Catarina</option>
+                                    <option>Mato Grosso do Sul</option>
+                                    <option>Mato Grosso</option>
+                                    <option>Goias</option>
+                                    <option>Distrito Federal</option>
+                                    <option>Rondônia</option>
+                                    <option>Acre</option>
+                                    <option>Amazonas</option>
+                                    <option>Amapá</option>
+                                    <option>Roraima</option>
+                                    <option>Pará</option>
+                                    <option>Tocantins</option>
+                                    <option>Maranhão</option>
+                                    <option>Ceará</option>
+                                    <option>Rio grande do Norte</option>
+                                    <option>Paraíba</option>
+                                    <option>Pernambuco</option>
+                                    <option>Alagoas</option>
+                                    <option>Sergipe</option>
+                                    <option>Bahia</option>
+                                </select>
+                            </div>
 
-                <div class="form-group">
-                    <label>Cidade</label>
-                    <input class="form-control">
+                            <div class="form-group">
+                                <label>Cidade</label>
+                                <input class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Rua</label>
+                                <input class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Número</label>
+                                <input class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>CEP</label>
+                                <input class="form-control">
+                            </div>
+
+                            <button type="submit" class="btn-cadastro">Submit</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Rua</label>
-                    <input class="form-control">
+                <div class="col-lg-4 col-sm-12 col-md-12">
+                    <form class="login" action="#">
+                        <div class="card">
+                            <div class="card-top">
+                                <h2 class="tittle">LOGIN</h2>
+                            </div>
+
+                            <div class="card-group">
+                                <label>Email</label>
+                                <input type="email" name="email" placeholder="Insira seu email:" required>
+                            </div>
+
+                            <div class="card-group">
+                                <label>Senha</label>
+                                <input type="password" name="senha" placeholder="Insira sua senha:" required>
+                            </div>
+
+                            <div class="card-group">
+                                <label><input type="checkbox">Lembre-me</label>
+                            </div>
+
+                            <div class="card-group btn">
+                                <button type="submit">Entrar</button>
+                            </div>
+
+
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label>Número</label>
-                    <input class="form-control">
-                </div>
-                <div class="form-group">
-                    <label>CEP</label>
-                    <input class="form-control">
-                </div>
-                
-                <button type="submit" class="btn-cadastro">Submit</button>
-            </form>
+            </div>
         </div>
 
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <div class="row text-center text-xs-center text-sm-left text-md-left">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Sobre a Empresa</h5>
+                        <p>Somos uma empresa que visa ajudar qualquer brasileiro que precise de materiais para
+                            poder começar ou continuar seus estudos. Por favor, confie em nós com os seus
+                            materiais para que assim possamos melhorar a vida de muitas pessoas.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Categorias</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="">Login</a></li>
+                            <li><a href="">Lista de Doações</a></li>
+                            <li><a href="">Cadastrar Doação</a></li>
+                            <li><a href="">Suas Demandas</a></li>
+                            <li><a href="">Seus Produtos Cadastrados</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="">Sobre Nós</a></li>
+                            <li><a href="">Contate Nos</a></li>
+                            <li><a href="">Parcerias</a></li>
+                            <li><a href="">Política de Privacidade</a></li>
+                            <li><a href="">Ajuda</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-		<!-- Footer -->
-		<section id="footer">
-			<div class="container">
-				<div class="row text-center text-xs-center text-sm-left text-md-left">
-					<div class="col-xs-12 col-sm-4 col-md-4">
-						<h5>Sobre a Empresa</h5>
-						<p>Somos uma empresa que visa ajudar qualquer brasileiro que precise de materiais para poder começar ou continuar seus estudos. Por favor, confie em nós com os seus materiais para que assim possamos melhorar a vida de muitas pessoas.</p>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4">
-						<h5>Categorias</h5>
-						<ul class="list-unstyled quick-links">
-							<li><a href="">Login</a></li>
-							<li><a href="">Lista de Doações</a></li>
-							<li><a href="">Cadastrar Doação</a></li>
-							<li><a href="">Suas Demandas</a></li>
-							<li><a href="">Seus Produtos Cadastrados</a></li>
-						</ul>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4">
-						<h5>Links</h5>
-						<ul class="list-unstyled quick-links">
-							<li><a href="">Sobre Nós</a></li>
-							<li><a href="">Contate Nos</a></li>
-							<li><a href="">Parcerias</a></li>
-							<li><a href="">Política de Privacidade</a></li>
-							<li><a href="">Ajuda</a></li>
-						</ul>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-						<p><a href="">PUC Minas</a></p>
-						<p>Engenharia de Software</p>
-					</div>
-				</div>	
-			</div>
-		</section>
-		<!-- Footer -->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p><a href="">PUC Minas</a></p>
+                        <p>Engenharia de Software</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
 
-	</div>
+    </div>
 </body>
-  
+
 </html>
