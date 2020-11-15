@@ -14,7 +14,13 @@ body{
 .below{
     padding-top: 20px;
     margin-top: 100px;
-    background-color: purple;
+    background-color: black;
+}
+
+.below-qmsomos{
+    padding-top: 20px;
+    margin-top: 70px;
+    background-color: white;
 }
 
 /*styles para o navbar*/
@@ -153,8 +159,6 @@ nav ul li a.active ,nav ul li a:hover{
 /* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
-    
-
     section .section-title {
         
         color: black;
@@ -162,9 +166,10 @@ nav ul li a.active ,nav ul li a:hover{
         text-transform: uppercase;
     }
     #footer {
-    background: black !important;
-    border-top: double;
-    border-color: purple;
+        background: black !important;
+        border-top: double;
+        border-color: purple;
+        margin-top: 20px;
     }
     #footer h5{
 	    padding-left: 10px;
@@ -219,7 +224,7 @@ nav ul li a.active ,nav ul li a:hover{
 .btn-primary {
     color: #fff;
     background-color: purple !important;
-    border-color: purple !important;
+    border-color:purple !important;
 }
 
 section {
@@ -228,14 +233,14 @@ section {
 
 section .section-title {
     text-align: center;
-    color:White;
+    color:black;
     margin-bottom: 50px;
     text-transform: uppercase;
 }
 
 #team .card {
     border: none;
-    background: #ffffff;
+    background: black !important;
 }
 
 .image-flip:hover .backside,
@@ -317,7 +322,7 @@ section .section-title {
 
 .backside .card a {
     font-size: 18px;
-    color: purple; 
+    color:purple; 
 }
 
 .frontside .card .card-title,
@@ -330,29 +335,40 @@ section .section-title {
     height: 120px;
     border-radius: 50%;
 }
+
+.card-text{
+    color: white;
+}
+
 /* Quem Somos*/
+
+
 
 /* Entrar */
 
 /* Formulário cadastro*/
 
 .cadastro{
-    width: 600px;
+    max-width: 550px !important;
     background-color: black;
     color: white;
     padding: 15px;
-    margin-left: 10px;
-    border-style: double;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .btn-cadastro{
     background-color: purple;
-    padding: 5px;
+    padding: 8px;
     border-radius: 10px;
+    border: 0px;
     color: white;
 }
 
-form h4{
+.cadastro h3{
     color: purple;
     text-align: center;
     margin: 10px;
@@ -376,45 +392,45 @@ form h4{
 }
 
 @media (max-width: 660px){
-.cadastro {width: 530px; }
+    .cadastro {
+        width: 510px; 
+        margin-bottom: 0px;
+    }
 }
 
 @media (max-width: 600px){
-    .cadastro {width: 470px; }
- }
+    .cadastro {width: 440px; }
+}
 
- @media (max-width: 550px){
-    .cadastro {width: 420px; }
- }
+@media (max-width: 550px){
+    .cadastro {width: 400px; }
+}
 
- @media (max-width: 500px){
-    .cadastro {width: 370px; }
- }
+@media (max-width: 500px){
+    .cadastro {width: 340px; }
+}
 
- @media (max-width: 450px){
-    .cadastro {width: 330px; }
+@media (max-width: 450px){
+    .cadastro {width: 320px; }
     .check-1 {display: inline;}
     .check-2 {display: inline;}
- }
+}
 
 /* ! cadastro */
 
 /* LOGIN */
 
-body{
-    background-color: black;
-    font-family: sans-serif;
-}
-
 .card{
-    background-color: whitesmoke;
-    padding: 25px;
-    border-radius: 5px;
+    background-color: black !important;
+    padding: 20px;
+    border-radius: 0px !important;
+    border-color: white !important;
 }
 
-form{
+.login{
     width: 400px;
     margin: auto;
+    margin-left: 20px;
     padding-top: 100px;
     padding-bottom: 100px;
     padding-left: 60px;
@@ -434,7 +450,7 @@ form{
 
 .card-group > label{
     width: 100%;
-    color: black;
+    color: white;
     display: block;
 }
 
@@ -442,42 +458,31 @@ form{
     border-radius: 5px;
     outline: 0;
     width: 100%;
-    height: 25px;
+    height: 40px;
     padding: 3px;
 }
 
-.card-group > button{
-    background-image: linear-gradient(to right, deeppink , rebeccapurple);
+.btn-login{
+    background-color: purple;
     width: 100%;
-    border-radius: 30px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 8px;
     color: white;
     border: 0px;
     outline: 0;
     font-size: medium;
 }
 
-.btn button:hover{
-    background-image: linear-gradient(to left, deeppink , rebeccapurple);
-}
 @media (max-width: 660px){
-    .login {width: 350px; }
+    .login {
+        width: 400px; 
+        margin-left: 0px;
     }
+}
     
-@media (max-width: 600px){
+@media (max-width: 400px){
     .login {width: 320px; }
-     }
-    
-@media (max-width: 550px){
-    .login {width: 300px; }
-     }
-    
-@media (max-width: 500px){
-    .login {width: 270px; }
-    }
-    
-@media (max-width: 450px){
-    .login {width: 250px; }
-     }
+}
+
 
 /* ! LOGIN */
