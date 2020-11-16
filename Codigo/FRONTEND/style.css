@@ -411,7 +411,7 @@ section .section-title {
 }
 
 @media (max-width: 450px){
-    .cadastro {width: 320px; }
+    .cadastro {width: 310px; }
     .check-1 {display: inline;}
     .check-2 {display: inline;}
 }
@@ -480,8 +480,16 @@ section .section-title {
     }
 }
     
-@media (max-width: 400px){
-    .login {width: 320px; }
+@media (max-width: 430px){
+    .login {width: 300px; 
+        margin-left: -20px;
+    }
+}
+
+@media (max-width: 340px){
+    .login {width: 280px; 
+        margin-left: -30px;
+    }
 }
 
 
