@@ -20,7 +20,7 @@ $(() => {
         }
 
         try {
-            const response = await fetch("https://tidescolar.azurewebsites.net/cadastro", {
+            const response = await fetch("/cadastro", {
                 method: "post",
                 headers: {
                     "content-type": "application/json",
