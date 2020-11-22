@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/121f68ec-b76c-46b2-a27a-ccda6f41499e/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/tidescolar",
+    "appService.deploySubpath": "."
+}

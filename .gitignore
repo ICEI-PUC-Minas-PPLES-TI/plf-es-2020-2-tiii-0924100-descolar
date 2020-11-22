@@ -2,3 +2,4 @@ Artefatos
 Documentacao
 .DS_Store
 node_modules
+.env

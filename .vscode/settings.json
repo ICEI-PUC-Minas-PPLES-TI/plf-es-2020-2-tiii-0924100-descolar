@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.deploySubpath": "Codigo/BACKEND",
+    "appService.defaultWebAppToDeploy": "/subscriptions/121f68ec-b76c-46b2-a27a-ccda6f41499e/resourceGroups/dEscolar/providers/Microsoft.Web/sites/tidescolar"
+}
