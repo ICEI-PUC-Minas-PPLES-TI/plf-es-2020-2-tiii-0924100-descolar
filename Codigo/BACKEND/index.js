@@ -23,8 +23,11 @@ app.get('/usuarios', async (req, res) => {
 
 app.post('/cadastro', async (req, res) => {
     try {
-        await client.query('INSERT INTO cliente (nome, email, senha, cpf, cnpj) VALUES ($1,$2,$3,$4,$5)',
+        const resposta = await client.query('INSERT INTO cliente (nome, email, senha, cpf, cnpj) VALUES ($1,$2,$3,$4,$5) RETURNING *',
             [req.body.nome, req.body.email, req.body.senha, req.body.cpf, req.body.cnpj]);
+
+        await client.query('INSERT INTO endereco (cod_cliente,logradouro, numero, complemento, bairro, cep, cidade, estado) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+            [resposta.rows[0].cod_cliente, req.body.logradouro, req.body.numero, req.body.complemento, req.body.bairro, req.body.cep, req.body.cidade, req.body.estado]);
         res.send('OK!')
 
     } catch (error) {
@@ -55,7 +58,20 @@ app.post('/entrar', async (req, res) => {
         res.send(error.message)
     }
 })
+app.delete('/session/:id', async (req, res) => {
+    try {
+        req.params.id
+        await client.query('DELETE FROM token WHERE token = $1',
+            [token])
+        res.send('ok')
 
+
+    } catch (error) {
+        res.status(500)
+        console.error(error.message)
+        res.send(error.message)
+    }
+})
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
