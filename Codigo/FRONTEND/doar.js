@@ -70,43 +70,66 @@ function exibeFormularioDemanda() {
 
     textoHTML = textoHTML + `
     <div class="container">
-    <form class="formCadastro">
-    <h3>Cadastre seu material</h3>
-    <div class="form-group">
-        <label>Tipo do material</label>
-        <input name="tipo_material" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Nome do material</label>
-        <input name="nome_material" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Estado de conservação</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option>Novo</option>
-            <option>Semi-novo</option>
-            <option>Usado</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Autor</label>
-        <input name="autor" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Edição/Ano de fabricação</label>
-        <input name="edicao_anofabric" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Editora</label>
-        <input name="editora" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlFile1">Foto do material</label>
-        <input name="Foto_Material" type="file" class="form-control-file" id="exampleFormControlFile1">
-    </div>
-    <button type="submit" class="btn-material">Cadastrar</button>
-</form>
-</div>    
+        <form class="formCadastro">
+
+            <a class="backToLog" href="queroDoar.html">🡐 Voltar para a lista de demandas</a>
+
+            <h3>Cadastre seu material</h3>
+
+            <div class="linha">
+                <div class="coluna">
+
+                    <div class="form-group">
+                        <label>Tipo do material</label>
+                        <input name="tipo_material" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nome do material</label>
+                        <input name="nome_material" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Estado de conservação</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Novo</option>
+                            <option>Semi-novo</option>
+                            <option>Usado</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="coluna">
+
+                    <div class="form-group">
+                        <label>Autor</label>
+                        <input name="autor" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Edição/Ano de fabricação</label>
+                        <input name="edicao_anofabric" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Editora</label>
+                        <input name="editora" type="text" class="form-control">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Foto do material</label>
+                <input name="Foto_Material" type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+
+            <button type="submit" class="btn-material">Cadastrar</button>
+
+        </form>
+    </div>    
     `;
 
     elemMain.innerHTML = textoHTML;

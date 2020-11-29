@@ -52,12 +52,14 @@
 
             <form class="cadastro">
 
+                <a class="backToLog" href="entrar.html">🡐 Voltar para o login</a>
+
                 <h3>Cadastre-se</h3>
                 <!------ arrumar o sumir ---------->
 
                 <input type="radio" class="checks check-1" name="tipo">
                 <label class="form-check-label" for="check-1">
-                    Pessoa física
+                        Pessoa física
                 </label>
 
                 <input type="radio" class="checks check-2" name="tipo">
@@ -65,90 +67,102 @@
                     Pessoa jurídica
                 </label>
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                    <label for="password">Senha</label>
-                    <input type="password" class="form-control" id="senha">
-                </div>
-                <div class="form-group">
-                    <label>Nome completo</label>
-                    <input class="form-control" id="nome">
-                </div>
+                <div class="linha">
+                    <div class="coluna">
 
-                <div class="some aparece-1 form-group">
-                    <label>CPF</label>
-                    <input class="form-control" id="cpf">
-                </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control" id="senha">
+                        </div>
+                        <div class="form-group">
+                            <label>Nome completo</label>
+                            <input class="form-control" id="nome">
+                        </div>
+        
+                        <div class="some aparece-1 form-group">
+                            <label>CPF</label>
+                            <input class="form-control" id="cpf">
+                        </div>
+        
+                        <div class="some aparece-2 form-group">
+                            <label>CNPJ</label>
+                            <input class="form-control" id="cnpj">
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Logradouro</label>
+                            <input class="form-control" id="logradouro">
+                        </div>
 
-                <div class="some aparece-2 form-group">
-                    <label>CNPJ</label>
-                    <input class="form-control" id="cnpj">
-                </div>
+                        <div class="form-group">
+                            <label>Número</label>
+                            <input class="form-control" id="numero">
+                        </div>
 
-                <div class="form-group">
-                    <label>Logradouro</label>
-                    <input class="form-control" id="logradouro">
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <label>Número</label>
-                    <input class="form-control" id="numero">
-                </div>
+                    <div class="coluna">
+        
+                        <div class="form-group">
+                            <label>Complemento</label>
+                            <input class="form-control" id="complemento">
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Bairro</label>
+                            <input class="form-control" id="bairro">
+                        </div>
+        
+                        <div class="form-group">
+                            <label>CEP</label>
+                            <input class="form-control" id="cep">
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Cidade</label>
+                            <input class="form-control" id="cidade">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <select class="form-control" id="estado">
+                                <option>Acre</option>
+                                <option>Alagoas</option>
+                                <option>Amapá</option>
+                                <option>Amazonas</option>
+                                <option>Bahia</option>
+                                <option>Ceará</option>
+                                <option>Distrito Federal</option>
+                                <option>Espírito Santo</option>
+                                <option>Goias</option>
+                                <option>Maranhão</option>
+                                <option>Mato Grosso do Sul</option>
+                                <option>Mato Grosso</option>
+                                <option selected>Minas Gerais</option>
+                                <option>Pará</option>
+                                <option>Paraíba</option>
+                                <option>Paraná</option>
+                                <option>Pernambuco</option>
+                                <option>Rio de Janeiro</option>
+                                <option>Rio Grande do Norte</option>
+                                <option>Rio Grande do Sul</option>
+                                <option>Rondônia</option>
+                                <option>Roraima</option>
+                                <option>Santa Catarina</option>
+                                <option>São Paulo</option>
+                                <option>Sergipe</option>
+                                <option>Tocantins</option>
+                            </select>
+                        </div>
 
-                <div class="form-group">
-                    <label>Complemento</label>
-                    <input class="form-control" id="complemento">
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <label>Bairro</label>
-                    <input class="form-control" id="bairro">
                 </div>
-
-                <div class="form-group">
-                    <label>CEP</label>
-                    <input class="form-control" id="cep">
-                </div>
-
-                <div class="form-group">
-                    <label>Cidade</label>
-                    <input class="form-control" id="cidade">
-                </div>
-
-                <div class="form-group">
-                    <label for="estado">Estado</label>
-                    <select class="form-control" id="estado">
-                        <option>Acre</option>
-                        <option>Alagoas</option>
-                        <option>Amapá</option>
-                        <option>Amazonas</option>
-                        <option>Bahia</option>
-                        <option>Ceará</option>
-                        <option>Distrito Federal</option>
-                        <option>Espírito Santo</option>
-                        <option>Goias</option>
-                        <option>Maranhão</option>
-                        <option>Mato Grosso do Sul</option>
-                        <option>Mato Grosso</option>
-                        <option selected>Minas Gerais</option>
-                        <option>Pará</option>
-                        <option>Paraíba</option>
-                        <option>Paraná</option>
-                        <option>Pernambuco</option>
-                        <option>Rio de Janeiro</option>
-                        <option>Rio Grande do Norte</option>
-                        <option>Rio Grande do Sul</option>
-                        <option>Rondônia</option>
-                        <option>Roraima</option>
-                        <option>Santa Catarina</option>
-                        <option>São Paulo</option>
-                        <option>Sergipe</option>
-                        <option>Tocantins</option>
-                    </select>
-                </div>
+                
                 <button type="submit" class="btn-cadastro">Submit</button>
             </form>
 
