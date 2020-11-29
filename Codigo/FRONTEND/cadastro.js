@@ -8,8 +8,10 @@ $(() => {
         let cnpj = $('#cnpj').val()
         const estado = $('#estado').val()
         const cidade = $('#cidade').val()
-        const rua = $('#rua').val()
+        const logradouro = $('#logradouro').val()
+        const bairro = $('#bairro').val()
         const numero = $('#numero').val()
+        const complemento = $('#complemento').val()
         const cep = $('#cep').val()
 
         if(cpf == ""){
@@ -26,7 +28,7 @@ $(() => {
                     "content-type": "application/json",
                 },
                 body: JSON.stringify({
-                    email, nome, senha, cpf, cnpj, estado, cidade, rua, numero, cep
+                    email, nome, senha, cpf, cnpj, estado, cidade, logradouro, bairro, complemento, numero, cep
                 })
             })
             if (response.status != 200) {
