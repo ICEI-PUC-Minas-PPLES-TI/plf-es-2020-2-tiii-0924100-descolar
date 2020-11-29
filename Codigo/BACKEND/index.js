@@ -60,9 +60,8 @@ app.post('/entrar', async (req, res) => {
 })
 app.delete('/session/:id', async (req, res) => {
     try {
-        req.params.id
         await client.query('DELETE FROM token WHERE token = $1',
-            [token])
+            [req.params.id])
         res.send('ok')
 
 
