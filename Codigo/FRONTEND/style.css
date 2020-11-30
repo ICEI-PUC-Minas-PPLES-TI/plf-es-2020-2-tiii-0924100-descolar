@@ -383,11 +383,11 @@ section .section-title {
     display: none;
 }
 
-.check-1:checked ~ .row .column .aparece-1{
+.check-1:checked ~ .aparece-1{
    display: block;
 }
 
-.check-2:checked ~ .row .column .aparece-2{
+.check-2:checked ~ .aparece-2{
     display: block;
 }
 
@@ -416,6 +416,10 @@ section .section-title {
     }
 }
 
+@media (max-width: 450px){
+    .check-1 {display: inline;}
+    .check-2 {display: inline;}
+}
 
 /* ! cadastro */
 
