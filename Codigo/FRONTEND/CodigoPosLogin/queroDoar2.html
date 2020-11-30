@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dEscolar</title>
+    <link rel = "stylesheet" href="style2.css">
+    
+    <!------ para footer ---------->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!--link para itens da responsividade do navbar-->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</head>
+<body>
+
+    <!--navbar-->
+    <nav id="navbar">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <!--quando clicar na logo vai pra home-->
+        <a href="home2.html">
+            <label class="logo">d E s c o l a r</label>
+        </a>
+
+        <ul class="itensnav">
+            <li><a href="home2.html">Home</a></li>
+            <li><a href="materiais2.html">Materiais</a></li>
+            <li><a class="active" href="queroDoar2.html">Quero doar</a></li>
+            <li><a href="QuemSomos2.html">Quem somos</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+	</nav>
+
+	<div class="below">
+
+		<div id="tela">
+			
+			<div>
+				<button class="btn-abrirForm" id="btn-abrirFormDemanda">Quero cadastrar um material </button>
+			</div>
+
+			<div id="cards-materiais"></div>
+
+		</div>
+		
+		<!-- Footer -->
+		<section id="footer">
+			<div class="container">
+				<div class="row text-center text-xs-center text-sm-left text-md-left">
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<h5>Sobre a Empresa</h5>
+						<p>Somos uma empresa que visa ajudar qualquer brasileiro que precise de materiais para
+                            poder começar ou continuar seus estudos. Com a sua ajuda podemos melhorar a vida de muitas pessoas.</p>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<h5>Categorias</h5>
+						<ul class="list-unstyled quick-links">
+							<li><a href="">Login</a></li>
+							<li><a href="">Lista de Doações</a></li>
+							<li><a href="">Cadastrar Doação</a></li>
+							<li><a href="">Suas Demandas</a></li>
+							<li><a href="">Seus Produtos Cadastrados</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<h5>Links</h5>
+						<ul class="list-unstyled quick-links">
+							<li><a href="">Sobre Nós</a></li>
+							<li><a href="">Contate Nos</a></li>
+							<li><a href="">Parcerias</a></li>
+							<li><a href="">Política de Privacidade</a></li>
+							<li><a href="">Ajuda</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+						<p><a href="">PUC Minas</a></p>
+						<p>Engenharia de Software</p>
+					</div>
+				</div>	
+			</div>
+		</section>
+		<!-- Footer -->
+
+	</div>
+
+	<script src="doar2.js"></script>
+
+
+</body>
+  
+</html>
