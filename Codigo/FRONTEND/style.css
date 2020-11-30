@@ -63,7 +63,7 @@ nav ul li a{
     text-transform: uppercase;
 }
 
-nav ul li a.active ,nav ul li a:hover{
+nav ul li a.activeNav ,nav ul li a:hover{
     background: purple;
     transition: .5s;
     color: white;
@@ -784,4 +784,100 @@ section .section-title {
         width: 100%;
         float: none;
     }
+}
+
+.carousel-inner{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+
+}
+
+
+
+
+/* HOME */
+
+/* Carroceu*/
+.carousel-inner{
+    margin-bottom: 50px;
+}
+
+
+@media (max-width: 1440px){
+    
+    .carousel{
+        width: 1200px; 
+        margin-left: -60px;
+    }
+
+}
+    
+@media (max-width: 1200px){
+    
+    .carousel{
+        width: 960px; 
+        margin-left: -20px;
+    }
+
+}
+@media (max-width: 1000px){
+    
+    .carousel{
+        width: 900px; 
+        margin-left: -90px;
+    }
+
+}
+
+
+@media (max-width: 900px){
+    
+    .carousel{
+        width: 800px; 
+        margin-left: -50px;
+    }
+
+}
+@media (max-width: 768px){
+    
+    .carousel{
+        width: 750px; 
+        margin-left: -90px;
+    }
+
+}
+@media (max-width: 700px){
+    
+    .carousel{
+        width: 650px; 
+        margin-left: -60px;
+    }
+
+}
+
+
+@media (max-width: 600px){
+    
+    .carousel{
+        width: 550px; 
+        margin-left: -10px;
+    }
+
+}
+@media (max-width: 550px){
+    
+    .carousel{
+        width: 470px; 
+        margin-left: -10px;
+    }
+
+}
+@media (max-width: 425px){
+    
+    .carousel{
+        width: 390px; 
+        margin-left: -20px;
+    }
+
 }
