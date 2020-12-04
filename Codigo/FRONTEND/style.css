@@ -142,7 +142,7 @@ nav ul li a.activeNav ,nav ul li a:hover{
         font-size: 17px;
     }
 
-    a:hover,a.active{
+    nav ul li a:hover, nav ul li a.activeNav{
         background: none;
         color: purple;
     }
