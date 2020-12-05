@@ -885,3 +885,47 @@ section .section-title {
     }
 
 }
+.btn-openForm{
+    float: center;
+    border-style: double;
+    color: white;
+    background-color: purple;
+}
+.btn-openForm.active .btn-openForm.hover{
+    color: white;
+    text-decoration: none;
+}
+@media screen (max-width: 425px){
+
+    .box-demanda {
+        size: 300px;
+        padding-left: -10px;
+    }
+    .box-material{
+        size: 300px;
+        padding-left: -10px;
+    
+    }
+}
+@media (max-width:1024px){
+    .box-demanda {
+        width: 500px;
+        padding-left: -10px;
+    }
+    .box-material{
+        width: 500px;
+        padding-left: -10px;
+    
+    }
+}
+
+#btnAtualizacao{
+    border-style: double;
+    color: white;
+    background-color: purple;
+}
+.textAtualizacao{
+    
+    color: white;
+    
+}
