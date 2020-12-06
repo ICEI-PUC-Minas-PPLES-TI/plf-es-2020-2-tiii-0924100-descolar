@@ -10,7 +10,7 @@ var dados = {
             "Edicao_anoFabricacao": "1ª edição",
             "Editoria": "Peacock",
             "Urgencia": "30 dias ou menos",
-            "Foto_Material": "img2/demanda1.jpg",
+            "Foto_Material": "img/demanda1.jpg",
             "Cod_Cliente": "563"
         },
         {
@@ -23,7 +23,7 @@ var dados = {
             "Edicao_anoFabricacao": "2005",
             "Editoria": "Kalmas",
             "Urgencia": "Sem urgencia",
-            "Foto_Material": "img2/demanda2.jpg",
+            "Foto_Material": "img/demanda2.jpg",
             "Cod_Cliente": "789"
         }
     ],
@@ -72,7 +72,7 @@ function exibeFormularioDemanda() {
     <div class="container">
         <form class="formCadastro">
 
-            <a class="backToLog" href="queroDoar2.html">🡐 Voltar para a lista de demandas</a>
+            <a class="backToLog" href="queroDoar.html">🡐 Voltar para a lista de demandas</a>
 
             <h3>Cadastre seu material</h3>
 

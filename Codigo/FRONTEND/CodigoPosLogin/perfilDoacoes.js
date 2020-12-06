@@ -10,7 +10,7 @@ var dados = {
             "Edicao_anoFabricacao": "1ª edição",
             "Editoria": "Peacock",
             "Urgencia": "30 dias ou menos",
-            "Foto_Material": "img2/demanda1.jpg",
+            "Foto_Material": "img/demanda1.jpg",
             "Cod_Cliente": "563"
         },
         {
@@ -23,7 +23,7 @@ var dados = {
             "Edicao_anoFabricacao": "2005",
             "Editoria": "Kalmas",
             "Urgencia": "Sem urgencia",
-            "Foto_Material": "img2/demanda2.jpg",
+            "Foto_Material": "img/demanda2.jpg",
             "Cod_Cliente": "789"
         }
     ],
@@ -93,7 +93,7 @@ var dados1 = {
             "Estado_Material": "disponível",
             "Edicao_anoFabricacao": "6ª edição",
             "Editoria": "Pearson",
-            "Foto_Material": "img2/exemplo1.jpg",
+            "Foto_Material": "img/exemplo1.jpg",
             "Cod_Cliente": "123"
         },
         {
@@ -106,7 +106,7 @@ var dados1 = {
             "Estado_Material": "disponível",
             "Edicao_anoFabricacao": "-",
             "Editoria": "-",
-            "Foto_Material": "img2/exemplo2.jpg",
+            "Foto_Material": "img/exemplo2.jpg",
             "Cod_Cliente": "125"
         }
     ],

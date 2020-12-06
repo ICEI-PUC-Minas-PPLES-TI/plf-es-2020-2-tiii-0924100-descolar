@@ -10,7 +10,7 @@ var dados = {
             "Estado_Material": "disponível",
             "Edicao_anoFabricacao": "6ª edição",
             "Editoria": "Pearson",
-            "Foto_Material": "img2/exemplo1.jpg",
+            "Foto_Material": "img/exemplo1.jpg",
             "Cod_Cliente": "123"
         },
         {
@@ -23,7 +23,7 @@ var dados = {
             "Estado_Material": "disponível",
             "Edicao_anoFabricacao": "-",
             "Editoria": "-",
-            "Foto_Material": "img2/exemplo2.jpg",
+            "Foto_Material": "img/exemplo2.jpg",
             "Cod_Cliente": "125"
         }
     ],
@@ -71,7 +71,7 @@ function exibeFormularioDemanda() {
             <div class="container">
                 <form class="formDemanda">
 
-                    <a class="backToLog" href="materiais2.html">🡐 Voltar para a lista de materiais disponíveis</a>
+                    <a class="backToLog" href="materiais.html">🡐 Voltar para a lista de materiais disponíveis</a>
 
                     <h3>Cadastre sua demanda</h3>
 

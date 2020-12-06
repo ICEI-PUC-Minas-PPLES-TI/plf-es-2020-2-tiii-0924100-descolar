@@ -136,6 +136,7 @@ function soLogado(req,res,next){
     next()
 }
 
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
