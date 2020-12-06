@@ -39,12 +39,12 @@
         </a>
 
         <ul class="itensnav">
-            <li><a class="activeNav" href="home2.html">Home</a></li>
+            <li><a href="home2.html">Home</a></li>
             <li><a href="materiais2.html">Materiais</a></li>
             <li><a href="queroDoar2.html">Quero doar</a></li>
             <li><a href="QuemSomos2.html">Quem somos</a></li>
             <li><a href="#">Contato</a></li>
-            <li><a href="perfil.html">Meu Perfil</a></li>
+            <li><a class="activeNav" href="perfil.html">Meu Perfil</a></li>
             <li><a href="../home.html">Logout</a></li>
         </ul>
     </nav>
@@ -52,46 +52,33 @@
 
     <div class="below">
 
-        <h1>BEM VINDO FULANO!</h1>
+        <h1>BEM VINDO FULANO!</h1> 
 
-
-        <div class="">
+        <div class="container">
 
             <form class="pqDoar" action="#">
                 <div class="card">
                     <div class="card-top">
                         <h3 class="tittle">Opções</h3>
                     </div>
+
                     <div id="tela">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-xsm-1 col-sm-3 col-md-2 col-lg-2">
-                                    <button type="button"class="btn-openForm" id="btn-abrirFormMinhasDemandas">Minhas demandas
-                                    </button>
-                                </div>
-
-                                <div class="col-xsm-1 col-sm-3 col-md-2 col-lg-2">
-                                    <button type="button" class="btn-openForm" id="btn-abrirFormMeusMateriais">Meus materiais
-                                    </button>
-                                </div>
-                            </div>
+                        <div>
+                            <button class="btn-openForm" id="btn-abrirFormMinhasDemandas">Minhas demandas </button>
                         </div>
-
-                        <div id="cards-pdemandas"></div>
-                        <div id="cards-pmateriais"></div>
+                        <div>
+                            <button class="btn-openForm" id="btn-abrirFormMeusMateriais">Meus materiais </button>
+                        </div>
+    
+                        <div id="cards-demandas"></div>
+                        <div id="cards-materiais"></div>
                     </div>
                 </div>
-
+    
             </form>
 
 
         </div>
-
-
-
-
-
-
 
         <!-- Footer -->
         <section id="footer">
