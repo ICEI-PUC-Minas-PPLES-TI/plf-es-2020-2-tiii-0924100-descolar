@@ -1,36 +1,16 @@
 var dados = {
-    "materiais": [
-        {
-            "cod_demanda": 1,
-            "data_demanda": "14/11/2020",
-            "tipo_demanda": "Livro",
-            "nome_demanda": "Filosofia Jorge",
-            "estado_conservacao": "Novo",
-            "autor": "Jorge matins",
-            "edicao_anofabric": "1ª edição",
-            "editora": "Peacock",
-            "foto": "img/demanda1.jpg",
-            "cod_cliente": "563"
-        },
-        {
-            "cod_demanda": 2,
-            "data_demanda": "1/11/2020",
-            "tipo_demanda": "Livro",
-            "nome_demanda": "Universe in a nutshell",
-            "estado_conservacao": "Novo",
-            "autor": "Stephen Hawking",
-            "edicao_anofabric": "2005",
-            "editora": "Kalmas",
-            "foto": "img/demanda2.jpg",
-            "cod_cliente": "789"
-        }
+    "materiais": [ 
     ],
 }
 
-
-
-
-function exibeMateriais() {
+async function exibeMateriais() {
+    const resposta = await fetch('/demanda')
+    if (resposta.status != 200){
+        return
+    } 
+    const materiais = await resposta.json()
+    dados.materiais = materiais    
+    
     var elemMain = document.getElementById('cards-materiais');
     var textoHTML = '';
 
@@ -41,10 +21,10 @@ function exibeMateriais() {
         textoHTML = textoHTML + `
             <div class="box-material">
                 <div><h4 class="titulo">${material.tipo_demanda} - ${material.nome_demanda}</h4></div>
-                <img class="thumbnail" src="${material.foto}" alt="">
+                <img class="thumbnail" src="${material.foto || 'img/default.jpg'}" alt="">
                 <div><h8 class="">Estado de conservação: ${material.estado_conservacao}</h8></div>
-                <div><h8 class="">autor: ${material.autor}</h8></div>
-                <div><h8 class="">editora: ${material.editora}</h8></div>
+                <div><h8 class="">Autor: ${material.autor}</h8></div>
+                <div><h8 class="">Editora: ${material.editora}</h8></div>
                 <div><h8 class="">Edição/Ano fabricação: ${material.edicao_anofabric}</h8></div>
                 <button id="btnInteresse" type="button" class="btnModal" data-toggle="modal">
                 <a href="#" class="card-text">Quero doar!</a>

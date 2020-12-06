@@ -92,7 +92,7 @@ app.delete('/session/:id', async (req, res) => {
     }
 })
 
-app.get('/demandas', async (req, res) => {
+app.get('/demanda', async (req, res) => {
     try {
 
         const clientes = await client.query('SELECT D.*, C.nome FROM demanda D INNER JOIN cliente C ON D.cod_cliente = C.cod_cliente WHERE status = \'disponivel\'');
@@ -106,7 +106,7 @@ app.get('/demandas', async (req, res) => {
     }
 })
 
-app.get('/materiais', async (req, res) => {
+app.get('/material', async (req, res) => {
     try {
         const clientes = await client.query('SELECT M.*, C.nome FROM material M INNER JOIN cliente C ON M.cod_cliente = C.cod_cliente WHERE status = \'disponivel\'');
         res.header("content-type", "application/json")
@@ -119,7 +119,7 @@ app.get('/materiais', async (req, res) => {
     }
 })
 
-app.get('/materiais/cliente', soLogado, async (req,res)=>{
+app.get('/material/cliente', soLogado, async (req,res)=>{
     await client.query('SELECT * FROM material WHERE cod_cliente = $1', [req.cliente.cod_cliente])
 })
 

@@ -535,7 +535,7 @@ section .section-title {
 
 .box-material #btnInteresse{
     background-color: purple;
-    width: 100px;
+    padding: 0 10px;
     height: 30px;
     margin-top: 12px;
     border-style: none;

@@ -1,35 +1,16 @@
 var dados = {
     "materiais": [
-        {
-            "cod_material": 1,
-            "data_cadastro": "18/11/2020",
-            "tipo": "Livro",
-            "nome_material": "Cálculo A",
-            "estado_conservacao": "Semi-novo",
-            "autor": "Diva Marília Flemming",
-            "status": "disponível",
-            "ano_fabricacao": "6ª edição",
-            "editora": "Pearson",
-            "foto": "img/exemplo1.jpg",
-            "cod_cliente": "123"
-        },
-        {
-            "cod_material": 2,
-            "data_cadastro": "18/11/2020",
-            "tipo": "Fichário",
-            "nome_material": "Fichário Yes 96 páginas 5 divisórias",
-            "estado_conservacao": "Novo",
-            "autor": "-",
-            "status": "disponível",
-            "ano_fabricacao": "-",
-            "editora": "-",
-            "foto": "img/exemplo2.jpg",
-            "cod_cliente": "125"
-        }
     ],
 }
 
-function exibeMateriais() {
+async function exibeMateriais() {
+    const resposta = await fetch('/material')
+    if (resposta.status != 200){
+        return
+    } 
+    const materiais = await resposta.json()
+    dados.materiais = materiais
+
     var elemMain = document.getElementById('cards-materiais');
     var textoHTML = '';
 
@@ -40,13 +21,13 @@ function exibeMateriais() {
         textoHTML = textoHTML + `
             <div class="box-material">
                 <div><h4 class="titulo">${material.tipo} - ${material.nome_material}</h4></div>
-                <img class="thumbnail" src="${material.foto}" alt="">
+                <img class="thumbnail" src="${material.foto || 'img/default.jpg'}" alt="">
                 <div><h8 class="">Estado de conservação: ${material.estado_conservacao}</h8></div>
-                <div><h8 class="">autor: ${material.autor}</h8></div>
-                <div><h8 class="">editora: ${material.editora}</h8></div>
+                <div><h8 class="">Autor: ${material.autor}</h8></div>
+                <div><h8 class="">Editora: ${material.editora}</h8></div>
                 <div><h8 class="">Edição/Ano fabricação: ${material.ano_fabricacao}</h8></div>
                 <div><h8 class="">Estado do material: ${material.status}</h8></div>
-                <div><h8 class="">Data do cadastro: ${material.data_cadastro}</h8></div>
+                <div><h8 class="">Data do cadastro: ${new Date(material.data_cadastro).toLocaleString('pt-br',{month:'long', day: 'numeric', year: 'numeric'})}</h8></div>
                 
                 <button id="btnInteresse" type="button" class="btnModal" data-toggle="modal">
                 <a href="#" class="card-text">Tenho interesse!</a>
