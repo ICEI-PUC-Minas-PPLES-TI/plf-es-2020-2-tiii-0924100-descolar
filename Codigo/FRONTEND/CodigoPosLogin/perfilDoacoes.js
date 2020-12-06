@@ -40,7 +40,7 @@ function exibeDemandas() {
         var material = dados.materiais[i];
 
         texto1 = texto1 + `
-            <div class="box-material">
+            <div class="box-material box-perfil">
                 <div><h4 class="titulo">${material.Tipo} - ${material.Nome_Material}</h4></div>
                 <img class="thumbnail" src="${material.Foto_Material}" alt="">
                 <div><h8 class="">Estado de conservação: ${material.Estado_Conservacao}</h8></div>
@@ -121,7 +121,7 @@ function exibeMateriais() {
         var material = dados1.materiais[i];
 
         texto2 = texto2 + `
-            <div class="box-material">
+            <div class="box-material box-perfil">
                 <div><h4 class="titulo">${material.Tipo} - ${material.Nome_Material}</h4></div>
                 <img class="thumbnail" src="${material.Foto_Material}" alt="">
                 <div><h8 class="">Estado de conservação: ${material.Estado_Conservacao}</h8></div>
@@ -131,29 +131,45 @@ function exibeMateriais() {
                 <div><h8 class="">Estado do material: ${material.Estado_Material}</h8></div>
                 <div><h8 class="">Data do cadastro: ${material.Data_Cadastro}</h8></div>
                 <div class="atualizacao">
-                <div>
-                <input type="checkbox" class="checkAtualizacao" id="disponivel" name="tipo">
-                <label class="textAtualizacao" for="disponivel" >
-                        Disponível
-                </label>
-               
-                <input type="checkbox" class="checkAtualizacao" id="indisponivel" name="tipo">
-                <label class="textAtualizacao" for="indisponivel" >
-                   Indisponível 
-                </label>
-               </div>
-            <div class="atualizar">
-                <button id="btnAtualizacao" type="button">
-                 <a href="#" class="card-text">Atualizar </a>
-                </button>
+                    <div>
+                        <input type="checkbox" class="checkAtualizacao" id="disponivel" name="tipo">
+                        <label class="textAtualizacao" for="disponivel" >
+                                Disponível
+                        </label>
+                    
+                        <input type="checkbox" class="checkAtualizacao" id="indisponivel" name="tipo">
+                        <label class="textAtualizacao" for="indisponivel" >
+                        Indisponível 
+                        </label>
+                    </div>
+                    
+                    <div class="atualizar">
+                        <button id="btnAtualizacao" type="button">
+                        <a href="#" class="card-text">Atualizar </a>
+                        </button>
+                    </div>
                 </div>
-            </div>
             </div>
         `;
     };
 
     elemMain.innerHTML = texto2;
 }
+
+function someMateriais(){
+    var elemMain = document.getElementById('cards-materiais');
+    var texto2 = '';
+    elemMain.innerHTML = texto2;
+}
+
+
+document.getElementById('btn-abrirFormMeusMateriais').addEventListener('click', exibeMateriais);
+document.getElementById('btn-abrirFormMinhasDemandas').addEventListener('click', someMateriais);
+
+
+
+
+
 
 function someMateriais(){
     var elemMain = document.getElementById('cards-materiais');
