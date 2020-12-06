@@ -29,6 +29,7 @@ app.use(async function verificaLogado(req, res, next) {
     } catch (error) {
         next(error)
     }
+    next()
 })
 app.get('/', (req, res) => {
     res.redirect('/home.html')
@@ -119,15 +120,35 @@ app.get('/material', async (req, res) => {
     }
 })
 
-app.get('/material/cliente', soLogado, async (req,res)=>{
-    await client.query('SELECT * FROM material WHERE cod_cliente = $1', [req.cliente.cod_cliente])
+app.get('/material/cliente', soLogado, async (req, res) => {
+    try {
+        const clientes = await client.query('SELECT * FROM material WHERE cod_cliente = $1', [req.cliente.cod_cliente])
+
+        res.header("content-type", "application/json")
+        res.send(JSON.stringify(clientes.rows, null, 2))
+
+    } catch (error) {
+        res.status(500)
+        console.error(error.message)
+        res.send(error.message)
+    }
 })
 
-app.get('/demanda/cliente', soLogado, async (req,res)=>{
-    await client.query('SELECT * FROM demanda WHERE cod_cliente = $1', [req.cliente.cod_cliente])
+app.get('/demanda/cliente', soLogado, async (req, res) => {
+    try {
+        const clientes = await client.query('SELECT * FROM demanda WHERE cod_cliente = $1', [req.cliente.cod_cliente])
+
+        res.header("content-type", "application/json")
+        res.send(JSON.stringify(clientes.rows, null, 2))
+
+    } catch (error) {
+        res.status(500)
+        console.error(error.message)
+        res.send(error.message)
+    }
 })
 
-function soLogado(req,res,next){
+function soLogado(req, res, next) {
     if (!req.cliente) {
         res.status(401)
         res.send('Unauthorized');

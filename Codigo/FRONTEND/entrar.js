@@ -21,9 +21,8 @@ $(() => {
             }
             else{
                 const token = await response.text()
-                alert("Login bem sucedido! Seu token de sessão é: " + token)
                 localStorage.setItem('token', token)
-                location.pathname="/home.html"
+                location.pathname="/CodigoPosLogin/home.html"
             }
         } catch (erro) {
             alert("não foi possível enviar a requisição")
