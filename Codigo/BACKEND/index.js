@@ -13,6 +13,23 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(express.static('public'));
+app.use(async function verificaLogado(req, res, next) {
+    const authorization = req.header('authorization');
+    if (authorization === undefined) {
+        return next()
+    }
+    const [type, token] = authorization.split(' ');
+    if (type != 'Bearer') {
+        return next()
+    }
+    try {
+        const resposta = await client.query('SELECT C.*FROM token T INNER JOIN cliente C ON T.cod_cliente = C.cod_cliente WHERE token = $1', [token]);
+        const cliente = resposta.rows[0];
+        req.cliente = cliente;
+    } catch (error) {
+        next(error)
+    }
+})
 app.get('/', (req, res) => {
     res.redirect('/home.html')
 })
@@ -101,6 +118,23 @@ app.get('/materiais', async (req, res) => {
         res.send(error.message)
     }
 })
+
+app.get('/materiais/cliente', soLogado, async (req,res)=>{
+    await client.query('SELECT * FROM material WHERE cod_cliente = $1', [req.cliente.cod_cliente])
+})
+
+app.get('/demanda/cliente', soLogado, async (req,res)=>{
+    await client.query('SELECT * FROM demanda WHERE cod_cliente = $1', [req.cliente.cod_cliente])
+})
+
+function soLogado(req,res,next){
+    if (!req.cliente) {
+        res.status(401)
+        res.send('Unauthorized');
+        return;
+    }
+    next()
+}
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
