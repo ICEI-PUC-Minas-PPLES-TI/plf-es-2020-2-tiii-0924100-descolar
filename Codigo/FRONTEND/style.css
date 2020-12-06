@@ -611,6 +611,16 @@ section .section-title {
     float: right;
 }
 
+.btn-openForm{
+    background-color: purple;
+    width: 300px;
+    height: 30px;
+    margin: 20px;
+    border-style: none;
+    color: white;
+    float: left;
+}
+
 .formDemanda{
     width: 100% !important;
     background-color: black;
@@ -885,47 +895,19 @@ section .section-title {
     }
 
 }
-.btn-openForm{
-    float: center;
-    border-style: double;
-    color: white;
-    background-color: purple;
-}
-.btn-openForm.active .btn-openForm.hover{
-    color: white;
-    text-decoration: none;
-}
-@media screen (max-width: 425px){
 
-    .box-demanda {
-        size: 300px;
-        padding-left: -10px;
-    }
-    .box-material{
-        size: 300px;
-        padding-left: -10px;
-    
-    }
+.textAtualizacao{
+    color:white;
 }
-@media (max-width:1024px){
-    .box-demanda {
-        width: 500px;
-        padding-left: -10px;
-    }
-    .box-material{
-        width: 500px;
-        padding-left: -10px;
-    
-    }
+
+.atualizacao{
+    margin: 5px;
 }
 
 #btnAtualizacao{
-    border-style: double;
-    color: white;
     background-color: purple;
-}
-.textAtualizacao{
-    
-    color: white;
-    
+    width: 100px;
+    height: 30px;
+    margin-top: 5px;
+    border-style: none;
 }
