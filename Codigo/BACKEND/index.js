@@ -138,8 +138,8 @@ function soLogado(req,res,next){
 
 app.post('/demanda', soLogado, async (req, res) => {
     try {
-        await client.query('INSERT INTO demanda (cod_cliente, tipo_material, nome_demanda, estado_conservacao, autor, edicao_anofabric, editora) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
-            [req.cliente.cod_cliente, req.body.tipo_material, req.body.nome_demanda, req.body.estado_conservacao, req.body.autor, req.body.edicao_anofabric, req.body.editora]);
+        await client.query('INSERT INTO demanda (cod_cliente, tipo_demanda, nome_demanda, estado_conservacao, autor, edicao_anofabric, editora) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+            [req.cliente.cod_cliente, req.body.tipo_demanda, req.body.nome_demanda, req.body.estado_conservacao, req.body.autor, req.body.edicao_anofabric, req.body.editora]);
         res.send('OK!')
 
     } catch (error) {

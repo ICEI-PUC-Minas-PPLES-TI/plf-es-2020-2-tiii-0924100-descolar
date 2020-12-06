@@ -1,30 +1,30 @@
 var dados = {
     "materiais": [
         {
-            "Cod_Material": 1,
-            "Data_Cadastro": "18/11/2020",
-            "Tipo": "Livro",
-            "Nome_Material": "Cálculo A",
-            "Estado_Conservacao": "Semi-novo",
-            "Autor": "Diva Marília Flemming",
-            "Estado_Material": "disponível",
-            "Edicao_anoFabricacao": "6ª edição",
-            "Editoria": "Pearson",
-            "Foto_Material": "img/exemplo1.jpg",
-            "Cod_Cliente": "123"
+            "cod_material": 1,
+            "data_cadastro": "18/11/2020",
+            "tipo": "Livro",
+            "nome_material": "Cálculo A",
+            "estado_conservacao": "Semi-novo",
+            "autor": "Diva Marília Flemming",
+            "status": "disponível",
+            "ano_fabricacao": "6ª edição",
+            "editora": "Pearson",
+            "foto": "img/exemplo1.jpg",
+            "cod_cliente": "123"
         },
         {
-            "Cod_Material": 2,
-            "Data_Cadastro": "18/11/2020",
-            "Tipo": "Fichário",
-            "Nome_Material": "Fichário Yes 96 páginas 5 divisórias",
-            "Estado_Conservacao": "Novo",
-            "Autor": "-",
-            "Estado_Material": "disponível",
-            "Edicao_anoFabricacao": "-",
-            "Editoria": "-",
-            "Foto_Material": "img/exemplo2.jpg",
-            "Cod_Cliente": "125"
+            "cod_material": 2,
+            "data_cadastro": "18/11/2020",
+            "tipo": "Fichário",
+            "nome_material": "Fichário Yes 96 páginas 5 divisórias",
+            "estado_conservacao": "Novo",
+            "autor": "-",
+            "status": "disponível",
+            "ano_fabricacao": "-",
+            "editora": "-",
+            "foto": "img/exemplo2.jpg",
+            "cod_cliente": "125"
         }
     ],
 }
@@ -39,14 +39,14 @@ function exibeMateriais() {
 
         textoHTML = textoHTML + `
             <div class="box-material">
-                <div><h4 class="titulo">${material.Tipo} - ${material.Nome_Material}</h4></div>
-                <img class="thumbnail" src="${material.Foto_Material}" alt="">
-                <div><h8 class="">Estado de conservação: ${material.Estado_Conservacao}</h8></div>
-                <div><h8 class="">Autor: ${material.Autor}</h8></div>
-                <div><h8 class="">Editora: ${material.Editoria}</h8></div>
-                <div><h8 class="">Edição/Ano fabricação: ${material.Edicao_anoFabricacao}</h8></div>
-                <div><h8 class="">Estado do material: ${material.Estado_Material}</h8></div>
-                <div><h8 class="">Data do cadastro: ${material.Data_Cadastro}</h8></div>
+                <div><h4 class="titulo">${material.tipo} - ${material.nome_material}</h4></div>
+                <img class="thumbnail" src="${material.foto}" alt="">
+                <div><h8 class="">Estado de conservação: ${material.estado_conservacao}</h8></div>
+                <div><h8 class="">autor: ${material.autor}</h8></div>
+                <div><h8 class="">editora: ${material.editora}</h8></div>
+                <div><h8 class="">Edição/Ano fabricação: ${material.ano_fabricacao}</h8></div>
+                <div><h8 class="">Estado do material: ${material.status}</h8></div>
+                <div><h8 class="">Data do cadastro: ${material.data_cadastro}</h8></div>
                 
                 <button id="btnInteresse" type="button" class="btnModal" data-toggle="modal">
                 <a href="#" class="card-text">Tenho interesse!</a>
@@ -79,8 +79,8 @@ function exibeFormularioDemanda() {
                         <div class="coluna">
 
                             <div class="form-group">
-                                <label>Tipo do material</label>
-                                <input name="tipo_material" type="text" class="form-control">
+                                <label>tipo do material</label>
+                                <input name="tipo" type="text" class="form-control">
                             </div>
                             
                             <div class="form-group">
@@ -98,7 +98,7 @@ function exibeFormularioDemanda() {
                             </div>
 
                             <div class="form-group">
-                                <label>Autor</label>
+                                <label>autor</label>
                                 <input name="autor" type="text" class="form-control">
                             </div>
 
@@ -112,7 +112,7 @@ function exibeFormularioDemanda() {
                             </div>
 
                             <div class="form-group">
-                                <label>Editora</label>
+                                <label>editora</label>
                                 <input name="editora" type="text" class="form-control">
                             </div>
 
@@ -135,7 +135,7 @@ function exibeFormularioDemanda() {
 
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Foto do material</label>
-                        <input name="Foto_Material" type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input name="foto" type="file" class="form-control-file" id="exampleFormControlFile1">
                     </div>
 
                     <button type="submit" class="btn-demanda">Cadastrar</button>

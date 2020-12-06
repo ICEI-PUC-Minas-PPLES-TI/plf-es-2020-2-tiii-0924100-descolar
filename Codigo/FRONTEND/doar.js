@@ -1,30 +1,28 @@
 var dados = {
     "materiais": [
         {
-            "Cod_Demanda": 1,
-            "Data_Demanda": "14/11/2020",
-            "Tipo": "Livro",
-            "Nome_Material": "Filosofia Jorge",
-            "Estado_Conservacao": "Novo",
-            "Autor": "Jorge matins",
-            "Edicao_anoFabricacao": "1ª edição",
-            "Editoria": "Peacock",
-            "Urgencia": "30 dias ou menos",
-            "Foto_Material": "img/demanda1.jpg",
-            "Cod_Cliente": "563"
+            "cod_demanda": 1,
+            "data_demanda": "14/11/2020",
+            "tipo_demanda": "Livro",
+            "nome_demanda": "Filosofia Jorge",
+            "estado_conservacao": "Novo",
+            "autor": "Jorge matins",
+            "edicao_anofabric": "1ª edição",
+            "editora": "Peacock",
+            "foto": "img/demanda1.jpg",
+            "cod_cliente": "563"
         },
         {
-            "Cod_Demanda": 2,
-            "Data_Demanda": "1/11/2020",
-            "Tipo": "Livro",
-            "Nome_Material": "Universe in a nutshell",
-            "Estado_Conservacao": "Novo",
-            "Autor": "Stephen Hawking",
-            "Edicao_anoFabricacao": "2005",
-            "Editoria": "Kalmas",
-            "Urgencia": "Sem urgencia",
-            "Foto_Material": "img/demanda2.jpg",
-            "Cod_Cliente": "789"
+            "cod_demanda": 2,
+            "data_demanda": "1/11/2020",
+            "tipo_demanda": "Livro",
+            "nome_demanda": "Universe in a nutshell",
+            "estado_conservacao": "Novo",
+            "autor": "Stephen Hawking",
+            "edicao_anofabric": "2005",
+            "editora": "Kalmas",
+            "foto": "img/demanda2.jpg",
+            "cod_cliente": "789"
         }
     ],
 }
@@ -41,15 +39,14 @@ function exibeMateriais() {
         var material = dados.materiais[i];
 
         textoHTML = textoHTML + `
-            <div class="box-demanda">
-                <div><h4 class="titulo">${material.Tipo} - ${material.Nome_Material}</h4></div>
-                <img class="thumbnail" src="${material.Foto_Material}" alt="">
-                <div><h8 class="">Estado de conservação: ${material.Estado_Conservacao}</h8></div>
-                <div><h8 class="">Autor: ${material.Autor}</h8></div>
-                <div><h8 class="">Editora: ${material.Editoria}</h8></div>
-                <div><h8 class="">Edição/Ano fabricação: ${material.Edicao_anoFabricacao}</h8></div>
-                <div><h8 class="">Urgencia: ${material.Urgencia}</h8></div>
-                <button id="btnDoar" type="button" class="btnModal" data-toggle="modal">
+            <div class="box-material">
+                <div><h4 class="titulo">${material.tipo_demanda} - ${material.nome_demanda}</h4></div>
+                <img class="thumbnail" src="${material.foto}" alt="">
+                <div><h8 class="">Estado de conservação: ${material.estado_conservacao}</h8></div>
+                <div><h8 class="">autor: ${material.autor}</h8></div>
+                <div><h8 class="">editora: ${material.editora}</h8></div>
+                <div><h8 class="">Edição/Ano fabricação: ${material.edicao_anofabric}</h8></div>
+                <button id="btnInteresse" type="button" class="btnModal" data-toggle="modal">
                 <a href="#" class="card-text">Quero doar!</a>
                 </button>
             
@@ -80,13 +77,13 @@ function exibeFormularioDemanda() {
                 <div class="coluna">
 
                     <div class="form-group">
-                        <label>Tipo do material</label>
-                        <input name="tipo_material" type="text" class="form-control">
+                        <label>tipo_demanda do material</label>
+                        <input name="tipo_demanda" type="text" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Nome do material</label>
-                        <input name="nome_material" type="text" class="form-control">
+                        <input name="nome_demanda" type="text" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -103,7 +100,7 @@ function exibeFormularioDemanda() {
                 <div class="coluna">
 
                     <div class="form-group">
-                        <label>Autor</label>
+                        <label>autor</label>
                         <input name="autor" type="text" class="form-control">
                     </div>
 
@@ -113,7 +110,7 @@ function exibeFormularioDemanda() {
                     </div>
 
                     <div class="form-group">
-                        <label>Editora</label>
+                        <label>editora</label>
                         <input name="editora" type="text" class="form-control">
                     </div>
 
@@ -123,7 +120,7 @@ function exibeFormularioDemanda() {
 
             <div class="form-group">
                 <label for="exampleFormControlFile1">Foto do material</label>
-                <input name="Foto_Material" type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input name="foto" type="file" class="form-control-file" id="exampleFormControlFile1">
             </div>
 
             <button type="submit" class="btn-material">Cadastrar</button>
