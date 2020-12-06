@@ -170,18 +170,3 @@ document.getElementById('btn-abrirFormMinhasDemandas').addEventListener('click',
 
 
 
-
-function someMateriais(){
-    var elemMain = document.getElementById('cards-materiais');
-    var texto2 = '';
-    elemMain.innerHTML = texto2;
-}
-
-
-document.getElementById('btn-abrirFormMeusMateriais').addEventListener('click', exibeMateriais);
-document.getElementById('btn-abrirFormMinhasDemandas').addEventListener('click', someMateriais);
-
-
-
-
-

@@ -41,7 +41,7 @@ function exibeMateriais() {
         var material = dados.materiais[i];
 
         textoHTML = textoHTML + `
-            <div class="box-material">
+            <div class="box-demanda">
                 <div><h4 class="titulo">${material.Tipo} - ${material.Nome_Material}</h4></div>
                 <img class="thumbnail" src="${material.Foto_Material}" alt="">
                 <div><h8 class="">Estado de conservação: ${material.Estado_Conservacao}</h8></div>
@@ -49,7 +49,7 @@ function exibeMateriais() {
                 <div><h8 class="">Editora: ${material.Editoria}</h8></div>
                 <div><h8 class="">Edição/Ano fabricação: ${material.Edicao_anoFabricacao}</h8></div>
                 <div><h8 class="">Urgencia: ${material.Urgencia}</h8></div>
-                <button id="btnInteresse" type="button" class="btnModal" data-toggle="modal">
+                <button id="btnDoar" type="button" class="btnModal" data-toggle="modal">
                 <a href="#" class="card-text">Quero doar!</a>
                 </button>
             
