@@ -136,6 +136,32 @@ function soLogado(req,res,next){
     next()
 }
 
+app.post('/demanda', async (req, res) => {
+    try {
+        await client.query('INSERT INTO demanda (cod_cliente, tipo_material, nome_demanda, estado_conservacao, autor, edicao_anofabric, editora) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+            [req.cliente.cod_cliente, req.body.tipo_material, req.body.nome_demanda, req.body.estado_conservacao, req.body.autor, req.body.edicao_anofabric, req.body.editora]);
+        res.send('OK!')
+
+    } catch (error) {
+        res.status(500)
+        console.error(error.message)
+        res.send(error.message)
+    }
+})
+
+app.post('/material', async (req, res) => {
+    try {
+        await client.query('INSERT INTO material (cod_material, tipo, nome_material, autor, estado_conservacao, ano_fabricacao, editora, cod_cliente) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+            [req.body.cod_material, req.body.tipo, req.body.nome_material, req.body.autor, req.body.ano_fabricacao, req.body.editora, req.cliente.cod_cliente]);
+        res.send('OK!')
+
+    } catch (error) {
+        res.status(500)
+        console.error(error.message)
+        res.send(error.message)
+    }
+})
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
