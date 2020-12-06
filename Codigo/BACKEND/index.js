@@ -13,6 +13,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(express.static('public'));
+app.get('/', (req, res) => {
+    res.redirect('/home.html')
+})
 
 
 app.get('/usuarios', async (req, res) => {
@@ -71,6 +74,34 @@ app.delete('/session/:id', async (req, res) => {
         res.send(error.message)
     }
 })
+
+app.get('/demandas', async (req, res) => {
+    try {
+
+        const clientes = await client.query('SELECT D.*, C.nome FROM demanda D INNER JOIN cliente C ON D.cod_cliente = C.cod_cliente WHERE status = \'disponivel\'');
+        res.header("content-type", "application/json")
+        res.send(JSON.stringify(clientes.rows, null, 2))
+
+    } catch (error) {
+        res.status(500)
+        console.error(error.message)
+        res.send(error.message)
+    }
+})
+
+app.get('/materiais', async (req, res) => {
+    try {
+        const clientes = await client.query('SELECT M.*, C.nome FROM material M INNER JOIN cliente C ON M.cod_cliente = C.cod_cliente WHERE status = \'disponivel\'');
+        res.header("content-type", "application/json")
+        res.send(JSON.stringify(clientes.rows, null, 2))
+
+    } catch (error) {
+        res.status(500)
+        console.error(error.message)
+        res.send(error.message)
+    }
+})
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
