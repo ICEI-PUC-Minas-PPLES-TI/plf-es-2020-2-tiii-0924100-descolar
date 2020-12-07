@@ -2,8 +2,14 @@ require('dotenv').config()
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const express = require('express')
+const path = require('path')
+const multer = require('multer')
+const { BlobServiceClient } = require('@azure/storage-blob');
 const { Client } = require('pg')
 const { v4: gerarID } = require("uuid")
+
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage })
 
 const client = new Client()
 client.connect()
@@ -157,10 +163,22 @@ function soLogado(req, res, next) {
     next()
 }
 
-app.post('/demanda', soLogado, async (req, res) => {
+app.post('/demanda', soLogado, upload.single('foto'), async (req, res) => {
     try {
-        await client.query('INSERT INTO demanda (cod_cliente, tipo_demanda, nome_demanda, estado_conservacao, autor, edicao_anofabric, editora) VALUES ($1,$2,$3,$4,$5,$6,$7)',
-            [req.cliente.cod_cliente, req.body.tipo_demanda, req.body.nome_demanda, req.body.estado_conservacao, req.body.autor, req.body.edicao_anofabric, req.body.editora]);
+        let url = null;
+
+        if (req.file) {
+            const blobServiceClient = BlobServiceClient.fromConnectionString(process.env.BLOBAZURE);
+            const containerClient = blobServiceClient.getContainerClient('fotos');
+            const blobName = gerarID() + path.extname(req.file.originalname);
+            const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+            await blockBlobClient.upload(req.file.buffer, req.file.size)
+            url=blockBlobClient.url;
+        }
+
+
+        await client.query('INSERT INTO demanda (cod_cliente, tipo_demanda, nome_demanda, estado_conservacao, autor, edicao_anofabric, editora, foto) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+            [req.cliente.cod_cliente, req.body.tipo_demanda, req.body.nome_demanda, req.body.estado_conservacao, req.body.autor, req.body.edicao_anofabric, req.body.editora, url]);
         res.send('OK!')
 
     } catch (error) {
@@ -170,10 +188,21 @@ app.post('/demanda', soLogado, async (req, res) => {
     }
 })
 
-app.post('/material', soLogado, async (req, res) => {
+app.post('/material', soLogado, upload.single('foto'), async (req, res) => {
     try {
-        await client.query('INSERT INTO material (cod_material, tipo, nome_material, autor, estado_conservacao, ano_fabricacao, editora, cod_cliente) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
-            [req.body.cod_material, req.body.tipo, req.body.nome_material, req.body.autor, req.body.ano_fabricacao, req.body.editora, req.cliente.cod_cliente]);
+        let url = null;
+
+        if (req.file) {
+            const blobServiceClient = BlobServiceClient.fromConnectionString(process.env.BLOBAZURE);
+            const containerClient = blobServiceClient.getContainerClient('fotos');
+            const blobName = gerarID() + path.extname(req.file.originalname);
+            const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+            await blockBlobClient.upload(req.file.buffer, req.file.size)
+            url=blockBlobClient.url;
+        }
+
+        await client.query('INSERT INTO material (tipo, nome_material, autor, estado_conservacao, ano_fabricacao, editora, cod_cliente, foto) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+            [req.body.tipo, req.body.nome_material, req.body.autor, req.body.estado_conservacao, req.body.ano_fabricacao, req.body.editora, req.cliente.cod_cliente, url]);
         res.send('OK!')
 
     } catch (error) {

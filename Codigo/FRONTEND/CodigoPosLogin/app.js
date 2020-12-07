@@ -20,7 +20,7 @@ async function exibeMateriais() {
 
         textoHTML = textoHTML + `
             <div class="box-material">
-                <div><h4 class="titulo">${material.tipo} - ${material.nome_demanda}</h4></div>
+                <div><h4 class="titulo">${material.tipo} - ${material.nome_material}</h4></div>
                 <img class="thumbnail" src="${material.foto || 'img/default.jpg'}" alt="">
                 <div><h8 class="">Estado de conservação: ${material.estado_conservacao}</h8></div>
                 <div><h8 class="">Autor: ${material.autor}</h8></div>
@@ -124,21 +124,21 @@ function exibeFormularioDemanda() {
         const foto = $('#foto')[0].files[0];
 
         try {
+            const formData = new FormData();
+            formData.append('tipo_demanda', tipo_demanda);
+            formData.append('nome_demanda', nome_demanda);
+            formData.append('estado_conservacao', estado_conservacao);
+            formData.append('edicao_anofabric', edicao_anofabric);
+            formData.append('editora', editora);
+            formData.append('autor', autor);
+            formData.append('foto', foto);
             const response = await fetch("/demanda", {
                 method: "post",
                 headers: {
-                    "content-type": "application/json",
                     authorization: `Bearer ${localStorage.getItem('token')}`
 
                 },
-                body: JSON.stringify({
-                    tipo_demanda,
-                    nome_demanda,
-                    estado_conservacao,
-                    edicao_anofabric,
-                    editora,
-                    autor,
-                })
+                body: formData
             })
             if (response.status != 200) {
                 alert("Erro no servidor " + response.status)

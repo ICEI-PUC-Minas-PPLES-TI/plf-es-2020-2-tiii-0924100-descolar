@@ -57,21 +57,21 @@ function exibeFormularioDemanda() {
                 <div class="coluna">
 
                     <div class="form-group">
-                        <label>tipo_demanda do material</label>
-                        <input name="tipo_demanda" type="text" class="form-control">
+                        <label>Tipo do Material</label>
+                        <input name="tipo_demanda" type="text" class="form-control" id="tipo">
                     </div>
 
                     <div class="form-group">
                         <label>Nome do material</label>
-                        <input name="nome_demanda" type="text" class="form-control">
+                        <input name="nome_demanda" type="text" class="form-control" id="nome_material">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Estado de conservação</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>Novo</option>
-                            <option>Semi-novo</option>
-                            <option>Usado</option>
+                        <select class="form-control" id="estado_conservacao">
+                        <option value="novo">Novo</option>
+                        <option value="semi-novo">Semi-Novo</option>
+                        <option value="usado">Usado</option>
                         </select>
                     </div>
 
@@ -81,17 +81,17 @@ function exibeFormularioDemanda() {
 
                     <div class="form-group">
                         <label>autor</label>
-                        <input name="autor" type="text" class="form-control">
+                        <input name="autor" type="text" class="form-control" id="autor">
                     </div>
 
                     <div class="form-group">
                         <label>Edição/Ano de fabricação</label>
-                        <input name="edicao_anofabric" type="text" class="form-control">
+                        <input name="edicao_anofabric" type="text" class="form-control" id="ano_fabricacao">
                     </div>
 
                     <div class="form-group">
                         <label>editora</label>
-                        <input name="editora" type="text" class="form-control">
+                        <input name="editora" type="text" class="form-control" id="editora">
                     </div>
 
                 </div>
@@ -100,7 +100,7 @@ function exibeFormularioDemanda() {
 
             <div class="form-group">
                 <label for="exampleFormControlFile1">Foto do material</label>
-                <input name="foto" type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input name="foto" type="file" class="form-control-file" id="foto">
             </div>
 
             <button type="submit" class="btn-material">Cadastrar</button>
@@ -110,6 +110,44 @@ function exibeFormularioDemanda() {
     `;
 
     elemMain.innerHTML = textoHTML;
+    $('.formCadastro').submit(async (e) => {
+        e.preventDefault()
+        const tipo = $('#tipo').val()
+        const nome_material = $('#nome_material').val()
+        const estado_conservacao = $('#estado_conservacao').val()
+        const ano_fabricacao = $('#ano_fabricacao').val()
+        const editora = $('#editora').val()
+        const autor = $('#autor').val()
+        const foto = $('#foto')[0].files[0];
+
+        try {
+            const formData = new FormData();
+            formData.append('tipo', tipo);
+            formData.append('nome_material', nome_material);
+            formData.append('estado_conservacao', estado_conservacao);
+            formData.append('ano_fabricacao', ano_fabricacao);
+            formData.append('editora', editora);
+            formData.append('autor', autor);
+            formData.append('foto', foto);
+            const response = await fetch("/material", {
+                method: "post",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+
+                },
+                body: formData
+            })
+            if (response.status != 200) {
+                alert("Erro no servidor " + response.status)
+            }
+            else {
+                location.pathname = "/CodigoPosLogin/perfil.html"
+            }
+        } catch (erro) {
+            alert("não foi possível enviar a requisição")
+        }
+    })
+
 }
 
 document.getElementById('btn-abrirFormDemanda').addEventListener('click', exibeFormularioDemanda);
