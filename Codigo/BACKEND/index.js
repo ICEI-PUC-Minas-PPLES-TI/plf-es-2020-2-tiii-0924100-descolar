@@ -38,7 +38,7 @@ app.use(async function verificaLogado(req, res, next) {
     next()
 })
 app.get('/', (req, res) => {
-    res.redirect('/home.html')
+    res.redirect(301, '/index.html')
 })
 
 

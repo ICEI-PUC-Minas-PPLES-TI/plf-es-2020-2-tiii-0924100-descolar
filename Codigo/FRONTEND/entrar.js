@@ -22,7 +22,7 @@ $(() => {
             else{
                 const token = await response.text()
                 localStorage.setItem('token', token)
-                location.pathname="/CodigoPosLogin/home.html"
+                location.pathname="/CodigoPosLogin/index.html"
             }
         } catch (erro) {
             alert("não foi possível enviar a requisição")
