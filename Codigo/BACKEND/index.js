@@ -37,9 +37,7 @@ app.use(async function verificaLogado(req, res, next) {
     }
     next()
 })
-app.get('/', (req, res) => {
-    res.redirect(301, '/index.html')
-})
+
 
 
 app.get('/usuarios', async (req, res) => {
