@@ -13,9 +13,9 @@ async function exibeDemandas() {
         return
     } 
 
-
     const materiais = await resposta.json()
     dados.materiais = materiais
+    
     var elemMain = document.getElementById('cards-demandas');
     var texto1 = '';
 
@@ -24,7 +24,7 @@ async function exibeDemandas() {
         var material = dados.materiais[i];
 
         texto1 = texto1 + `
-            <div class="box-material box-perfil">
+            <div class="box-demanda box-perfil">
                 <div><h4 class="titulo">${material.tipo_demanda} - ${material.nome_demanda}</h4></div>
                 <img class="thumbnail" src="${material.foto || 'img/default.jpg'}" alt="">
                 <div><h8 class="">Estado de conservação: ${material.estado_conservacao}</h8></div>
@@ -50,19 +50,12 @@ async function exibeDemandas() {
                 </div>
             </div>
             </div>
-        \`;
         `;
     };
     elemMain.innerHTML = texto1;
 }
-function someDemandas(){
-    var elemMain = document.getElementById('cards-demandas');
-    var texto1 = '';
-    elemMain.innerHTML = texto1;
-}
 
 document.getElementById('btn-abrirFormMinhasDemandas').addEventListener('click', exibeDemandas);
-document.getElementById('btn-abrirFormMeusMateriais').addEventListener('click', someDemandas);
 
 var dados1 = {
     "materiais": [
@@ -124,17 +117,83 @@ async function exibeMateriais() {
     elemMain.innerHTML = texto2;
 }
 
+document.getElementById('btn-abrirFormMeusMateriais').addEventListener('click', exibeMateriais);
+
+
+var dados2 = {
+    "materiais": [
+    ],
+}
+
+async function exibeNotificacoes() {
+
+    var elemMain = document.getElementById('cards-notificacoes');
+    var texto3 = '';
+
+    for (i = 0; i < dados2.materiais.length; i++) {
+
+        var material = dados1.materiais[i];
+
+        texto3 = texto3 + `
+            <div class="box-material box-perfil">
+                <div><h4 class="titulo">${material.Tipo} - ${material.Nome_Material}</h4></div>
+                <img class="thumbnail" src="${material.Foto_Material}" alt="">
+                <div><h8 class="">Estado de conservação: ${material.Estado_Conservacao}</h8></div>
+                <div><h8 class="">Autor: ${material.Autor}</h8></div>
+                <div><h8 class="">Editora: ${material.Editoria}</h8></div>
+                <div><h8 class="">Edição/Ano fabricação: ${material.Edicao_anoFabricacao}</h8></div>
+                <div><h8 class="">Estado do material: ${material.Estado_Material}</h8></div>
+                <div><h8 class="">Data do cadastro: ${material.Data_Cadastro}</h8></div>
+                <div class="atualizacao">
+                    <div>
+                        <input type="checkbox" class="checkAtualizacao" id="disponivel" name="tipo">
+                        <label class="textAtualizacao" for="disponivel" >
+                                Entregue
+                        </label>
+                    
+                        <input type="checkbox" class="checkAtualizacao" id="indisponivel" name="tipo">
+                        <label class="textAtualizacao" for="indisponivel" >
+                                Não entregue 
+                        </label>
+                    </div>
+                    
+                    <div class="atualizar">
+                        <button id="btnAtualizacao" type="button">
+                        <a href="#" class="card-text">Aceitar!</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    };
+    elemMain.innerHTML = texto3;
+}
+
+document.getElementById('btn-abrirFormNotificacoes').addEventListener('click', exibeNotificacoes);
+
+function someNotificacoes(){
+    var elemMain = document.getElementById('cards-notificacoes');
+    var texto2 = '';
+    elemMain.innerHTML = texto2;
+}
+
 function someMateriais(){
     var elemMain = document.getElementById('cards-materiais');
     var texto2 = '';
     elemMain.innerHTML = texto2;
 }
 
+function someDemandas(){
+    var elemMain = document.getElementById('cards-demandas');
+    var texto1 = '';
+    elemMain.innerHTML = texto1;
+}
 
-document.getElementById('btn-abrirFormMeusMateriais').addEventListener('click', exibeMateriais);
+document.getElementById('btn-abrirFormNotificacoes').addEventListener('click', someMateriais);
+document.getElementById('btn-abrirFormNotificacoes').addEventListener('click', someDemandas);
+
 document.getElementById('btn-abrirFormMinhasDemandas').addEventListener('click', someMateriais);
+document.getElementById('btn-abrirFormMinhasDemandas').addEventListener('click', someNotificacoes);
 
-
-
-
-
+document.getElementById('btn-abrirFormMeusMateriais').addEventListener('click', someDemandas);
+document.getElementById('btn-abrirFormMeusMateriais').addEventListener('click', someNotificacoes);

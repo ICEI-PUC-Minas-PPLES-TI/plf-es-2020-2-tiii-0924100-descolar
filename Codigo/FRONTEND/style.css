@@ -17,12 +17,6 @@ body{
     background-color: black;
 }
 
-.below-qmsomos{
-    padding-top: 20px;
-    margin-top: 70px;
-    background-color: white;
-}
-
 /*styles para o navbar*/
 
 nav{
@@ -233,13 +227,13 @@ section {
 
 section .section-title {
     text-align: center;
-    color:black;
+    color:white;
     margin-bottom: 50px;
     text-transform: uppercase;
 }
 
 #team .card {
-    border: none;
+    border-style: solid;
     background: black !important;
 }
 
@@ -554,7 +548,7 @@ section .section-title {
     min-height: 300px;
     border-style: solid;
     border-color: purple;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: black;
@@ -680,11 +674,10 @@ section .section-title {
 .box-demanda{
     display: inline-block;
     width: 500px;
-    max-height: 300px;
     min-height: 300px;
     border-style: solid;
     border-color: purple;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: black;

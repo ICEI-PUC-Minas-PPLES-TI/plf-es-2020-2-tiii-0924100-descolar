@@ -30,7 +30,7 @@ async function exibeMateriais() {
                 <div><h8 class="">Data do cadastro: ${new Date(material.data_cadastro).toLocaleString('pt-br',{month:'long', day: 'numeric', year: 'numeric'})}</h8></div>
                 
                 <button id="btnInteresse" type="button" class="btnModal" data-toggle="modal">
-                <a href="#" class="card-text">Tenho interesse!</a>
+                <a href="entrar.html" class="card-text">Tenho interesse!</a>
                 </button>
             
             </div>
@@ -41,91 +41,3 @@ async function exibeMateriais() {
 }
 
 window.onload = exibeMateriais();
-
-
-
-function exibeFormularioDemanda() {
-    var elemMain = document.getElementById('tela');
-    var textoHTML = '';
-
-        textoHTML = textoHTML + `
-            <div class="container">
-                <form class="formDemanda">
-
-                    <a class="backToLog" href="materiais.html">🡐 Voltar para a lista de materiais disponíveis</a>
-
-                    <h3>Cadastre sua demanda</h3>
-
-                    <div class="linha">
-                        <div class="coluna">
-
-                            <div class="form-group">
-                                <label>tipo do material</label>
-                                <input name="tipo" type="text" class="form-control">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Nome do material</label>
-                                <input name="nome_demanda" type="text" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Estado de conservação</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>Novo</option>
-                                    <option>Semi-novo</option>
-                                    <option>Usado</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>autor</label>
-                                <input name="autor" type="text" class="form-control">
-                            </div>
-
-                        </div>
-
-                        <div class="coluna">
-
-                            <div class="form-group">
-                                <label>Edição/Ano de fabricação</label>
-                                <input name="edicao_anofabric" type="text" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>editora</label>
-                                <input name="editora" type="text" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Urgência</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>menos de 30 dias</option>
-                                    <option>30 dias ou mais</option>
-                                    <option>60 dias ou mais</option>
-                                    <option>90 dias ou mais</option>
-                                    <option>120 dias ou mais</option>
-                                    <option>150 dias ou mais</option>
-                                    <option>sem urgência</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                    </div>    
-
-                    <div class="form-group">
-                        <label for="exampleFormControlFile1">Foto do material</label>
-                        <input name="foto" type="file" class="form-control-file" id="exampleFormControlFile1">
-                    </div>
-
-                    <button type="submit" class="btn-demanda">Cadastrar</button>
-                
-                </form>
-            </div>    
-        `;
-
-    elemMain.innerHTML = textoHTML;
-}
-
-document.getElementById('btn-abrirFormDemanda').addEventListener('click', exibeFormularioDemanda);
