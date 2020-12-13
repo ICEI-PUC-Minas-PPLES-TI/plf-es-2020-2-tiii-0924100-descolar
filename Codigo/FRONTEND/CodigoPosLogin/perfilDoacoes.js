@@ -31,24 +31,6 @@ async function exibeDemandas() {
                 <div><h8 class="">Autor: ${material.autor}</h8></div>
                 <div><h8 class="">Editora: ${material.editora}</h8></div>
                 <div><h8 class="">Edição/Ano fabricação: ${material.edicao_anofabric}</h8></div>
-                <div class="atualizacao">
-                <div>
-                <input type="checkbox" class="checkAtualizacao" id="pendente" name="tipo">
-                <label class="textAtualizacao" for="pendente" >
-                        Pendente
-                </label>
-               
-                <input type="checkbox" class="checkAtualizacao" id="atendida" name="tipo">
-                <label class="textAtualizacao" for="atendida" >
-                   Atendida
-                </label>
-               </div>
-            <div class="atualizar">
-                <button id="btnAtualizacao" type="button">
-                 <a href="#" class="card-text">Atualizar </a>
-                </button>
-                </div>
-            </div>
             </div>
         `;
     };
@@ -91,25 +73,6 @@ async function exibeMateriais() {
                 <div><h8 class="">Edição/Ano fabricação: ${material.ano_fabricacao}</h8></div>
                 <div><h8 class="">Estado do material: ${material.status}</h8></div>
                 <div><h8 class="">Data do cadastro: ${new Date(material.data_cadastro).toLocaleString('pt-br',{month:'long', day: 'numeric', year: 'numeric'})}</h8></div>
-                <div class="atualizacao">
-                    <div>
-                        <input type="checkbox" class="checkAtualizacao" id="disponivel" name="tipo">
-                        <label class="textAtualizacao" for="disponivel" >
-                                Disponível
-                        </label>
-                    
-                        <input type="checkbox" class="checkAtualizacao" id="indisponivel" name="tipo">
-                        <label class="textAtualizacao" for="indisponivel" >
-                        Indisponível 
-                        </label>
-                    </div>
-                    
-                    <div class="atualizar">
-                        <button id="btnAtualizacao" type="button">
-                        <a href="#" class="card-text">Atualizar </a>
-                        </button>
-                    </div>
-                </div>
             </div>
         `;
     };
