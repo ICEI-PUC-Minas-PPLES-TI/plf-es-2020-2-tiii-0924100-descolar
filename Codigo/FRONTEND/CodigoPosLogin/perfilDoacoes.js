@@ -197,3 +197,20 @@ document.getElementById('btn-abrirFormMinhasDemandas').addEventListener('click',
 
 document.getElementById('btn-abrirFormMeusMateriais').addEventListener('click', someDemandas);
 document.getElementById('btn-abrirFormMeusMateriais').addEventListener('click', someNotificacoes);
+
+$(async() => {
+    try {
+        const response = await fetch('/usuarios/eu' , {
+            headers: {
+                authorization:`Bearer ${localStorage.getItem('token')}`
+            },
+        })
+        if (response.status == 200){
+            const eu = await response.json()
+            $('.nomeUsuario').text(eu.nome)
+        }
+    } catch (erro) {
+        alert("não foi possível enviar a requisição")
+    }
+
+})

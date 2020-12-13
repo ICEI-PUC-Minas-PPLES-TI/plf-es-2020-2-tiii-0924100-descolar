@@ -46,6 +46,12 @@ app.get('/usuarios', async (req, res) => {
     res.send(JSON.stringify(clientes.rows, null, 2))
 })
 
+app.get('/usuarios/eu', soLogado, async (req, res) => {
+    const clientes = await client.query('SELECT *FROM cliente WHERE cod_cliente = $1', [req.cliente.cod_cliente]);
+    res.header("content-type", "application/json")
+    res.send(JSON.stringify(clientes.rows[0], null, 2))
+})
+
 app.post('/cadastro', async (req, res) => {
     try {
         const resposta = await client.query('INSERT INTO cliente (nome, email, senha, cpf, cnpj) VALUES ($1,$2,$3,$4,$5) RETURNING *',
