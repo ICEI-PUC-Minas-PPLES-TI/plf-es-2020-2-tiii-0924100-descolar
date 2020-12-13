@@ -177,7 +177,7 @@ app.post('/demanda', soLogado, upload.single('foto'), async (req, res) => {
             const blobName = gerarID() + path.extname(req.file.originalname);
             const blockBlobClient = containerClient.getBlockBlobClient(blobName);
             await blockBlobClient.upload(req.file.buffer, req.file.size)
-            url=blockBlobClient.url;
+            url = blockBlobClient.url;
         }
 
 
@@ -202,7 +202,7 @@ app.post('/material', soLogado, upload.single('foto'), async (req, res) => {
             const blobName = gerarID() + path.extname(req.file.originalname);
             const blockBlobClient = containerClient.getBlockBlobClient(blobName);
             await blockBlobClient.upload(req.file.buffer, req.file.size)
-            url=blockBlobClient.url;
+            url = blockBlobClient.url;
         }
 
         await client.query('INSERT INTO material (tipo, nome_material, autor, estado_conservacao, ano_fabricacao, editora, cod_cliente, foto) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
@@ -216,6 +216,53 @@ app.post('/material', soLogado, upload.single('foto'), async (req, res) => {
     }
 })
 
+app.post('/material/:cod_material/aceitar', soLogado, async (req, res) => {
+    const client = new Client()
+    try {
+        client.connect()
+        await client.query('BEGIN')
+        const material_doacao = await client.query('UPDATE material SET status = \'aguardando\' WHERE cod_material = $1 RETURNING cod_cliente',
+            [req.params.cod_material]);
+
+        await client.query('INSERT INTO doacao_ocorrida (cod_cliente_doador, cod_cliente_recebedor, cod_material) VALUES ($1,$2,$3)',
+            [material_doacao.rows[0].cod_cliente, req.cliente.cod_cliente, req.params.cod_material]);
+        await client.query('COMMIT')
+        res.send('OK!')
+
+    } catch (error) {
+        await client.query('ROLLBACK')
+        res.status(500)
+        console.error(error.message)
+        res.send(error.message)
+    }
+    finally{
+        client.end()
+    }
+})
+
+app.post('/demanda/:cod_demanda/aceitar', soLogado, async (req, res) => {
+    const client = new Client()
+    try {
+        client.connect()
+        await client.query('BEGIN')
+        const demanda_doacao = await client.query('UPDATE demanda SET status = \'aguardando\' WHERE cod_demanda = $1 RETURNING cod_cliente',
+            [req.params.cod_demanda]);
+
+        await client.query('INSERT INTO doacao_ocorrida (cod_cliente_doador, cod_cliente_recebedor, cod_demanda) VALUES ($1,$2,$3)',
+            [req.cliente.cod_cliente, demanda_doacao.rows[0].cod_cliente, req.params.cod_demanda]);
+        await client.query('COMMIT')
+        res.send('OK!')
+
+    } catch (error) {
+        await client.query('ROLLBACK')
+        res.status(500)
+        console.error(error.message)
+        res.send(error.message)
+    }
+    finally{
+        client.end()
+    }
+})
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

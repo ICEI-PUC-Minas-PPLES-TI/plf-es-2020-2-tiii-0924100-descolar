@@ -27,7 +27,7 @@ async function exibeMateriais() {
                 <div><h8 class="">Editora: ${material.editora}</h8></div>
                 <div><h8 class="">Edição/Ano fabricação: ${material.edicao_anofabric}</h8></div>
                 <button id="btnInteresse" type="button" class="btnModal" data-toggle="modal">
-                <a href="#" class="card-text">Quero doar!</a>
+                <a href="#" class="card-text doar" data-codigo="${material.cod_demanda}">Quero doar!</a>
                 </button>
             
             </div>
@@ -35,6 +35,33 @@ async function exibeMateriais() {
     };
 
     elemMain.innerHTML = textoHTML;
+
+    $('.doar',elemMain).click(async (e) => {
+        e.preventDefault()
+        if(! confirm("Confirma a doação?")){
+            return;
+        }
+        try {
+            const response = await fetch('/demanda/'+ e.target.dataset.codigo +'/aceitar', {
+                method: "post",
+                headers: {
+                    "content-type": "application/json",
+                    authorization:`Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                })
+            })
+            if (response.status != 200){
+                alert("Erro no servidor " + response.status)
+            }
+            else{
+                alert("Solicitação enviada com sucesso! Clique na aba \"Em Andamento\"")
+                location.pathname="/CodigoPosLogin/perfil.html"
+            }
+        } catch (erro) {
+            alert("não foi possível enviar a requisição")
+        }
+    })
 }
 
 

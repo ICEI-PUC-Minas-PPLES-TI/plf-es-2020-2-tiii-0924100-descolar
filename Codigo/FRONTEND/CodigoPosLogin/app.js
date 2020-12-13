@@ -30,7 +30,7 @@ async function exibeMateriais() {
                 <div><h8 class="">Data do cadastro: ${new Date(material.data_cadastro).toLocaleString('pt-br', { month: 'long', day: 'numeric', year: 'numeric' })}</h8></div>
                 
                 <button id="btnInteresse" type="button" class="btnModal" data-toggle="modal">
-                <a href="#" class="card-text">Tenho interesse!</a>
+                <a href="#" class="card-text interesse" data-codigo="${material.cod_material}">Tenho interesse!</a>
                 </button>
             
             </div>
@@ -38,6 +38,33 @@ async function exibeMateriais() {
     };
 
     elemMain.innerHTML = textoHTML;
+
+    $('.interesse',elemMain).click(async (e) => {
+        e.preventDefault()
+        if(! confirm("Confirma o interesse?")){
+            return;
+        }
+        try {
+            const response = await fetch('/material/'+ e.target.dataset.codigo +'/aceitar', {
+                method: "post",
+                headers: {
+                    "content-type": "application/json",
+                    authorization:`Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                })
+            })
+            if (response.status != 200){
+                alert("Erro no servidor " + response.status)
+            }
+            else{
+                alert("Solicitação enviada com sucesso! Clique na aba \"Em Andamento\"")
+                location.pathname="/CodigoPosLogin/perfil.html"
+            }
+        } catch (erro) {
+            alert("não foi possível enviar a requisição")
+        }
+    })
 }
 
 window.onload = exibeMateriais();
