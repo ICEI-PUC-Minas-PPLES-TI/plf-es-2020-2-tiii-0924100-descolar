@@ -1,16 +1,16 @@
 var dados = {
-    "materiais": [ 
+    "materiais": [
     ],
 }
 
 async function exibeMateriais() {
     const resposta = await fetch('/demanda')
-    if (resposta.status != 200){
+    if (resposta.status != 200) {
         return
-    } 
+    }
     const materiais = await resposta.json()
-    dados.materiais = materiais    
-    
+    dados.materiais = materiais
+
     var elemMain = document.getElementById('cards-materiais');
     var textoHTML = '';
 
@@ -36,27 +36,30 @@ async function exibeMateriais() {
 
     elemMain.innerHTML = textoHTML;
 
-    $('.doar',elemMain).click(async (e) => {
+    $('.doar', elemMain).click(async (e) => {
         e.preventDefault()
-        if(! confirm("Confirma a doação?")){
+        if (!confirm("Confirma a doação?")) {
             return;
         }
         try {
-            const response = await fetch('/demanda/'+ e.target.dataset.codigo +'/aceitar', {
+            const response = await fetch('/demanda/' + e.target.dataset.codigo + '/aceitar', {
                 method: "post",
                 headers: {
                     "content-type": "application/json",
-                    authorization:`Bearer ${localStorage.getItem('token')}`
+                    authorization: `Bearer ${localStorage.getItem('token')}`
                 },
                 body: JSON.stringify({
                 })
             })
-            if (response.status != 200){
+            if (response.status == 409) {
+                alert(await response.text())
+            }
+            else if (response.status != 200) {
                 alert("Erro no servidor " + response.status)
             }
-            else{
+            else {
                 alert("Solicitação enviada com sucesso! Clique na aba \"Em Andamento\"")
-                location.pathname="/CodigoPosLogin/perfil.html"
+                location.pathname = "/CodigoPosLogin/perfil.html"
             }
         } catch (erro) {
             alert("não foi possível enviar a requisição")

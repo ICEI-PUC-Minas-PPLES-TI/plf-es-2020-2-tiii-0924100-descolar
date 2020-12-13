@@ -126,43 +126,40 @@ var dados2 = {
 }
 
 async function exibeNotificacoes() {
+    const resposta = await fetch('/doacao_ocorrida',{
+        headers:{
+            authorization:`Bearer ${localStorage.getItem('token')}`
+        }
+    })
+    if (resposta.status != 200){
+        return
+    } 
 
+    const doacoes = await resposta.json()
+    dados2.materiais = doacoes
     var elemMain = document.getElementById('cards-notificacoes');
     var texto3 = '';
 
     for (i = 0; i < dados2.materiais.length; i++) {
 
-        var material = dados1.materiais[i];
+        var material = dados2.materiais[i];
 
         texto3 = texto3 + `
-            <div class="box-material box-perfil">
-                <div><h4 class="titulo">${material.Tipo} - ${material.Nome_Material}</h4></div>
-                <img class="thumbnail" src="${material.Foto_Material}" alt="">
-                <div><h8 class="">Estado de conservação: ${material.Estado_Conservacao}</h8></div>
-                <div><h8 class="">Autor: ${material.Autor}</h8></div>
-                <div><h8 class="">Editora: ${material.Editoria}</h8></div>
-                <div><h8 class="">Edição/Ano fabricação: ${material.Edicao_anoFabricacao}</h8></div>
-                <div><h8 class="">Estado do material: ${material.Estado_Material}</h8></div>
-                <div><h8 class="">Data do cadastro: ${material.Data_Cadastro}</h8></div>
-                <div class="atualizacao">
-                    <div>
-                        <input type="checkbox" class="checkAtualizacao" id="disponivel" name="tipo">
-                        <label class="textAtualizacao" for="disponivel" >
-                                Entregue
-                        </label>
-                    
-                        <input type="checkbox" class="checkAtualizacao" id="indisponivel" name="tipo">
-                        <label class="textAtualizacao" for="indisponivel" >
-                                Não entregue 
-                        </label>
-                    </div>
-                    
+            <div class="box-notificacao box-perfil">
+                <div><h4 class="titulo">${material.tipo} - ${material.nome}</h4></div>
+                <img class="thumbnail" src="${material.foto || 'img/default.jpg'}" alt="">
+                <div><h8 class="">Autor: ${material.autor}</h8></div>
+                <div><h8 class="">Nome do ${material.tipo == "doando" ? "recebedor" : "doador" }: ${material.nome_outra_parte}</h8></div>
+                <div><h8 class="">Email do ${material.tipo == "doando" ? "recebedor" : "doador" }: ${material.email_outra_parte}</h8></div>
+                ${material.tipo == "recebendo" ?  `<div class="atualizacao">
                     <div class="atualizar">
                         <button id="btnAtualizacao" type="button">
-                        <a href="#" class="card-text">Aceitar!</a>
+                        <a href="#" class="card-text">Recebi!</a>
                         </button>
                     </div>
-                </div>
+                </div>` : `
+                    <div><h8 class="">Enviar Para: ${material.logradouro} ${material.numero} / ${material.complemento}, ${material.bairro}, ${material.cidade}, ${material.estado}, ${material.cep}</h8></div>
+                `}
             </div>
         `;
     };

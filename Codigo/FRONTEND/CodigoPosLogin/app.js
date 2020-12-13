@@ -54,8 +54,11 @@ async function exibeMateriais() {
                 body: JSON.stringify({
                 })
             })
-            if (response.status != 200){
-                alert("Erro no servidor " + response.status)
+            if (response.status == 409){
+                alert(await response.text())
+            }
+            else if (response.status != 200){
+                alert("Erro nASDSADASDSADo servidor " + response.status)
             }
             else{
                 alert("Solicitação enviada com sucesso! Clique na aba \"Em Andamento\"")

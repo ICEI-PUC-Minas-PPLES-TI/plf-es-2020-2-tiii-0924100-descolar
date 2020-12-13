@@ -221,8 +221,14 @@ app.post('/material/:cod_material/aceitar', soLogado, async (req, res) => {
     try {
         client.connect()
         await client.query('BEGIN')
-        const material_doacao = await client.query('UPDATE material SET status = \'aguardando\' WHERE cod_material = $1 RETURNING cod_cliente',
-            [req.params.cod_material]);
+        const material_doacao = await client.query('UPDATE material SET status = \'aguardando\' WHERE cod_material = $1 AND cod_cliente <> $2 RETURNING cod_cliente',
+            [req.params.cod_material, req.cliente.cod_cliente]);
+
+        if (material_doacao.rowCount === 0) {
+            res.status(409)
+            res.send("Não é possível aceitar seu próprio material!")
+            return;
+        }
 
         await client.query('INSERT INTO doacao_ocorrida (cod_cliente_doador, cod_cliente_recebedor, cod_material) VALUES ($1,$2,$3)',
             [material_doacao.rows[0].cod_cliente, req.cliente.cod_cliente, req.params.cod_material]);
@@ -235,7 +241,7 @@ app.post('/material/:cod_material/aceitar', soLogado, async (req, res) => {
         console.error(error.message)
         res.send(error.message)
     }
-    finally{
+    finally {
         client.end()
     }
 })
@@ -245,8 +251,13 @@ app.post('/demanda/:cod_demanda/aceitar', soLogado, async (req, res) => {
     try {
         client.connect()
         await client.query('BEGIN')
-        const demanda_doacao = await client.query('UPDATE demanda SET status = \'aguardando\' WHERE cod_demanda = $1 RETURNING cod_cliente',
-            [req.params.cod_demanda]);
+        const demanda_doacao = await client.query('UPDATE demanda SET status = \'aguardando\' WHERE cod_demanda = $1 AND cod_cliente <> $2  RETURNING cod_cliente',
+            [req.params.cod_demanda, req.cliente.cod_cliente]);
+        if (demanda_doacao.rowCount === 0) {
+            res.status(409)
+            res.send("Não é possível atender sua própria demanda!")
+            return;
+        }
 
         await client.query('INSERT INTO doacao_ocorrida (cod_cliente_doador, cod_cliente_recebedor, cod_demanda) VALUES ($1,$2,$3)',
             [req.cliente.cod_cliente, demanda_doacao.rows[0].cod_cliente, req.params.cod_demanda]);
@@ -259,9 +270,45 @@ app.post('/demanda/:cod_demanda/aceitar', soLogado, async (req, res) => {
         console.error(error.message)
         res.send(error.message)
     }
-    finally{
+    finally {
         client.end()
     }
+})
+
+app.get('/doacao_ocorrida', soLogado, async (req, res) => {
+    const doacoes = await client.query(`
+        SELECT
+            CASE
+                WHEN O.cod_cliente_doador = $1 THEN 'doando'
+                WHEN O.cod_cliente_recebedor = $1 THEN 'recebendo'
+            END AS tipo,
+            O.*, 
+            E.*,
+            CASE
+                WHEN O.cod_cliente_doador = $1 THEN Y.nome
+                WHEN O.cod_cliente_recebedor = $1 THEN X.nome
+            END AS nome_outra_parte,
+            CASE
+                WHEN O.cod_cliente_doador = $1 THEN Y.email
+                WHEN O.cod_cliente_recebedor = $1 THEN X.email
+            END AS email_outra_parte,
+            COALESCE(D.nome_demanda, M.nome_material) AS nome, 
+            COALESCE(D.autor, M.autor) AS autor,
+            COALESCE(D.foto, M.foto) AS foto,
+            COALESCE(D.status, M.status) AS status
+        FROM 
+            doacao_ocorrida O
+            LEFT JOIN cliente X ON O.cod_cliente_doador = X.cod_cliente 
+            LEFT JOIN cliente Y ON O.cod_cliente_recebedor = Y.cod_cliente 
+            LEFT JOIN demanda D ON O.cod_demanda = D.cod_demanda
+            LEFT JOIN material M ON O.cod_material = M.cod_material
+            LEFT JOIN endereco E ON O.cod_cliente_recebedor = E.cod_cliente
+
+        WHERE
+            O.cod_cliente_doador = $1 OR O.cod_cliente_recebedor = $1
+    `, [req.cliente.cod_cliente]);
+    res.header("content-type", "application/json")
+    res.send(JSON.stringify(doacoes.rows, null, 2))
 })
 
 app.listen(port, () => {

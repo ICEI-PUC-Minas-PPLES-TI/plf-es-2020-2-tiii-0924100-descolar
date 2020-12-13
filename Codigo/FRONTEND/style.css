@@ -700,6 +700,38 @@ section .section-title {
     color: white;
 }
 
+/*box-notificacoes*/
+
+.box-notificacao {
+    display: inline-block;
+    width: 500px;
+    min-height: 300px;
+    border-style: solid;
+    border-color: purple;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: black;
+    vertical-align: middle;
+}
+
+.box-notificacao .thumbnail{
+    min-width: 150px;
+    max-height: 200px;
+    margin: 5px;
+    float: left;
+}
+
+.box-notificacao .titulo{
+    margin: 8px;
+    color: white;
+    text-transform: capitalize;
+}
+
+.box-notificacao h8{
+    color: white;
+}
+
 #categorias button{
     width: 120px;
     color: white;
