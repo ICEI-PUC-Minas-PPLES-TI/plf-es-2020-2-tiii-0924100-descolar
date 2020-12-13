@@ -114,10 +114,10 @@ async function exibeNotificacoes() {
                 <div><h8 class="">Autor: ${material.autor}</h8></div>
                 <div><h8 class="">Nome do ${material.tipo == "doando" ? "recebedor" : "doador" }: ${material.nome_outra_parte}</h8></div>
                 <div><h8 class="">Email do ${material.tipo == "doando" ? "recebedor" : "doador" }: ${material.email_outra_parte}</h8></div>
-                ${material.tipo == "recebendo" ?  `<div class="atualizacao">
+                ${material.tipo == "recebendo" ? `<div class="atualizacao">
                     <div class="atualizar">
                         <button id="btnAtualizacao" type="button">
-                        <a href="#" class="card-text">Recebi!</a>
+                        <a href="#" class="card-text receber" data-codigo="${material.cod_doacao}">Recebi!</a>
                         </button>
                     </div>
                 </div>` : `
@@ -127,7 +127,38 @@ async function exibeNotificacoes() {
         `;
     };
     elemMain.innerHTML = texto3;
+
+    $('.receber', elemMain).click(async (e) => {
+        e.preventDefault()
+        if (!confirm("Confirma o Recebimento?")) {
+            return;
+        }
+        try {
+            const response = await fetch('/doacao_ocorrida/' + e.target.dataset.codigo + '/recebido', {
+                method: "post",
+                headers: {
+                    "content-type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                })
+            })
+            if (response.status == 409) {
+                alert(await response.text())
+            }
+            else if (response.status != 200) {
+                alert("Erro no servidor " + response.status)
+            }
+            else {
+                alert("Recebimento registrado com sucesso!")
+                location.reload()
+            }
+        } catch (erro) {
+            alert("não foi possível enviar a requisição")
+        }
+    })
 }
+
 
 document.getElementById('btn-abrirFormNotificacoes').addEventListener('click', exibeNotificacoes);
 

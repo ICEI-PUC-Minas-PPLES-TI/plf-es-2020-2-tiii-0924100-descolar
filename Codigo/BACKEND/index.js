@@ -305,11 +305,41 @@ app.get('/doacao_ocorrida', soLogado, async (req, res) => {
             LEFT JOIN endereco E ON O.cod_cliente_recebedor = E.cod_cliente
 
         WHERE
-            O.cod_cliente_doador = $1 OR O.cod_cliente_recebedor = $1
+            (O.cod_cliente_doador = $1 OR O.cod_cliente_recebedor = $1)
+            AND O.confirm_recebimento = false
     `, [req.cliente.cod_cliente]);
     res.header("content-type", "application/json")
     res.send(JSON.stringify(doacoes.rows, null, 2))
 })
+
+app.post('/doacao_ocorrida/:cod_doacao/recebido', soLogado, async (req, res) => {
+    const client = new Client()
+    try {
+        client.connect()
+        await client.query('BEGIN')
+        const doacao_ocorrida = await client.query('UPDATE doacao_ocorrida SET confirm_recebimento = true WHERE cod_doacao = $1 RETURNING cod_demanda, cod_material',
+            [req.params.cod_doacao]);
+        if (doacao_ocorrida.cod_material != null) {
+            await client.query('UPDATE material SET status = \'doado\' WHERE cod_material = $1', [doacao_ocorrida.cod_material])
+        }
+        else {
+            await client.query('UPDATE demanda SET status = \'doado\' WHERE cod_demanda = $1', [doacao_ocorrida.cod_demanda])
+        }
+
+        await client.query('COMMIT')
+        res.send('OK!')
+
+    } catch (error) {
+        await client.query('ROLLBACK')
+        res.status(500)
+        console.error(error.message)
+        res.send(error.message)
+    }
+    finally {
+        client.end()
+    }
+})
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
