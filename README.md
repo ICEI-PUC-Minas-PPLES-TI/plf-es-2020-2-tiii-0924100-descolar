@@ -19,7 +19,12 @@ Nosso plataforma permite a doação, venda (mais barata) e troca de materiais es
 WebSite: https://tidescolar.azurewebsites.net/
 
 O Site só permite a interação estando logado.
-Efetue o cadastro ou utilize o login de administrador: juliaprado@gmail.com - senha: password
+
+Efetue o cadastro ou utilize o login de administrador:
+
+juliaprado@gmail.com
+senha: password
+
 A aba Materiais exibe todos os materiais disponíveis para doação no site.
 A aba Quero Doar exibe todas as demandas que precisam ser atendidas no site. 
 Em Meu Perfil temos todas as demandas e materiais cadastrados por usuário, bem como doações em andamento
