@@ -22,8 +22,10 @@ O Site só permite a interação estando logado.
 
 Efetue o cadastro ou utilize o login de administrador:
 
-juliaprado@gmail.com
-senha: password
+admindescolar@gmail.com
+senha: admin
+
+Caso opte por fazer o cadastro não esqueça de selecionar se você é pessoa física ou jurídica!
 
 A aba Materiais exibe todos os materiais disponíveis para doação no site.
 A aba Quero Doar exibe todas as demandas que precisam ser atendidas no site. 
