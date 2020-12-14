@@ -1,6 +1,6 @@
 # dEscolar
 
-Nosso plataforma permite a doação, venda (mais barata) e troca de materiais escolares, livros, equipamentos eletrônicos usados ou não entre pessoas que querem dispor dessas coisas e pessoas que precisam obtê-las. Muitas pessoas no Brasil não tem condição de arcar com uma educação de qualidade, situação esta que foi agravada com a pandemia atual de COVID-19. Por isso existe a necessidade de unir pessoas que tem material de sobra com aquelas que precisam tanto.
+Nosso plataforma permite a doação de materiais escolares, livros usados ou não entre pessoas que querem dispor dessas coisas e pessoas que precisam obtê-las. Muitas pessoas no Brasil não tem condição de arcar com uma educação de qualidade, situação esta que foi agravada com a pandemia atual de COVID-19. Por isso existe a necessidade de unir pessoas que tem material de sobra com aquelas que precisam tanto.
 
 ## Alunos integrantes da equipe
 
